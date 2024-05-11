@@ -1,7 +1,7 @@
 # react-app
 世界の天気検索とタスク管理にクイズアプリを統合しました。
-
-todoのコード
+最新のソースコードはtest ブランチにあります。
+todoのコード ルーティング処理でプロジェクト一元化
 https://github.com/masatuber/react-to-do.git
 
 quizのコード
