@@ -1,5 +1,6 @@
 # Getting Started with Create React App
-
+最新版のソースコードで、React-Routerを使用、ページ遷移可能です。
+メーラー起動ページを追加しました。
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
