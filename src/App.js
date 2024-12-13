@@ -11,7 +11,7 @@ import axios from "axios";
 import Digit from "./components/DigitalDateTime"; //リアルタイム時計
 import TodoApps from './components/TodoApps';  //TodoAppsのページ追加
 import Inquiry from './components/Inquiry';  //問い合わせページ追加
-import CalendarApp from './components/CalendarApp';
+import CalendarApp from './components/CalendarApp'; //カレンダーアプリ追加
 function App() {
 
  const [city, setCity] = useState("");
@@ -79,6 +79,5 @@ function App() {
     </>
   );
 }
-
 
 export default App;
