@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#calendar {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #60b2f6;
+    border-bottom: 1px solid #ddd;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #60b2f6;
+}
+
+th,
+td {
+    width: 14.28%;
+    /* 100% / 7 days */
+    height: 50px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+td {
+    cursor: pointer;
+}
+
+td:hover {
+    background: #e52424;
+}
