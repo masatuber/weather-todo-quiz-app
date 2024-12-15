@@ -53,11 +53,12 @@ const CalendarApp = () => {
 
   return (
     <div id="calendar">
-      <header>
+      <div className="CalendarBody">
+      <div className="cld">
         <button onClick={handlePrevMonth}>＜</button>
         <h2>{`${year}年 ${month + 1}月`}</h2>
         <button onClick={handleNextMonth}>＞</button>
-      </header>
+      </div>
       <table>
         <thead>
           <tr>
@@ -73,6 +74,7 @@ const CalendarApp = () => {
         <tbody>{generateCalendar()}</tbody>
       </table>
       <p>カレンダーアプリ</p>
+    </div>
     </div>
   );
 };

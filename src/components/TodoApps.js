@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route, Routes, Link,  } from 'react-router-dom';
 import TodoList from "./TodoList"; 
 import { v4 as uuidv4 } from "uuid";
 import { useRef, useState } from 'react';
@@ -34,7 +33,7 @@ const todo = newTodos.find((todo) => todo.id === id );
 const handleClear = () => {
   const newTodos = todos.filter((todo) => !todo.completed);
   setTodos(newTodos);
-
+  
 };
 
          return (
@@ -48,17 +47,11 @@ const handleClear = () => {
       <button onClick={handleClear} >完了したタスクを削除削除する</button>
       <div><p>未完了のタスク ： {todos.filter((todo) => !todo.completed).length}</p></div>
       <p>サーバーレスのためリロードしましたらタスクがリセットされます。 </p>
-      {/*フィルター関数でfalseの時カウント*/}     
-            <li><Link to="/">天気アプリホームはこちら</Link></li>
-            <li>
-              <Routes>
-                <Route path='/' element="Homeはこちら" /> 
-            </Routes>
-            </li>
+      {/*フィルター関数でfalseの時カウント*/}
             </div>
           </div>
         </>
-        );
+      );
 };
 
 export default  TodoApps;

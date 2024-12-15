@@ -1,5 +1,6 @@
 import './App.css';
-import { BrowserRouter, Route, Routes, Link,  } from 'react-router-dom';
+import './HamburgerMenu.css';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';　//as　routerに切替
 import Home from './components/home';  //アプリHomeのページ追加
 import NotFound from './components/not_found'; //ルーティング設定で見つからない時のページ
 import Title from "./components/Title";   //天気インポート
@@ -12,6 +13,8 @@ import Digit from "./components/DigitalDateTime"; //リアルタイム時計
 import TodoApps from './components/TodoApps';  //TodoAppsのページ追加
 import Inquiry from './components/Inquiry';  //問い合わせページ追加
 import CalendarApp from './components/CalendarApp'; //カレンダーアプリ追加
+import { bubble as Menu } from "react-burger-menu";　//ハンバーガーメニューライブラリ使用
+
 function App() {
 
  const [city, setCity] = useState("");
@@ -44,39 +47,45 @@ function App() {
 //コンポーネント配置
 //リンク追加
   return (
-    <>
+  <>
+  <Router>
+    <div id="App">
           <div className="wrapper">
-            <div className="container">
-                <Title />
-                <Form getWeather={getWeather} setCity={setCity} city={city} />
+          <div className="container">
+        {/* ハンバーガーメニュー */}
+          <Menu >
+          <Link className="menu-item" to ="/">World Weather アプリ</Link>
+          <Link className="menu-item" to="/src/components/TodoApps.js" >ReactTodoアプリを開く</Link>
+          <Link className="menu-item" to="/src/components/CalendarApp.js">簡易カレンダーアプリを開く</Link>
+          <Link className="menu-item" to="https://quiz-app2-masatuber.netlify.app" target="_blank" rel="noopener noreferrer">クイズアプリを開く</Link>
+          <Link className="menu-item" to="https://www.youtube.com/@uverworldroyz1231/about" target="_blank" rel="noopener noreferrer">Youtubeチャンネルはこちら</Link>
+          <Link className="menu-item" to="/src/components/Inquiry.js">開発者にお問い合わせページはこちら</Link>
+          </Menu>
+          
+          {/* タイトルよりも上に配置する */}
+            <Title />
+            <Form getWeather={getWeather} setCity={setCity} city={city} />
                 {loading ? <Loading /> : <Results results={results} />}
             <font color="black"><div className="dit"><Digit /></div></font>      
-          <div className="link">
-      <BrowserRouter>
-        <ol>
-          <li><Link to="/">World Weather アプリ</Link></li>
-          <li><Link to="/src/components/TodoApps.js" >ReactTodoアプリを開く</Link></li>
-          <li><Link to="/src/components/CalendarApp.js">簡易カレンダーアプリを開く</Link></li>
-          <li><Link to="https://quiz-app2-masatuber.netlify.app" target="_blank" rel="noopener noreferrer"><font color="black">クイズアプリを開く</font></Link></li>
-          <li><Link to="https://www.youtube.com/@uverworldroyz1231/about" target="_blank" rel="noopener noreferrer">Youtubeチャンネルはこちら</Link></li>
-          <li><Link to="/src/components/Inquiry.js">開発者にお問い合わせページはこちら</Link></li>
-          
-        </ol>
+                
       <button><Link to="msnweather:"><font color="black">Windows天気アプリ起動</font></Link></button>
       <button><Link to="https://www.google.com/maps/d/viewer?mid=1VFroURwY3NC19qYVgHeMpb_c2vM&hl=ja&ll=-3.81666561775622e-14%2C17.82600400000001&z=1" target="_blank" rel="noopener noreferrer"> <font color="black">世界地図</font></Link>
       </button>
-        <Routes>
-          <Route path="/" element={<Home />} /> 
-          <Route path="/src/components/TodoApps.js" element={<TodoApps />} />
-          <Route path="/src/components/inquiry.js" element={<Inquiry />} />
-          <Route path="/src/components/CalendarApp.js" element={<CalendarApp />} /> 
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-          </div>
+      {/* ルーティング 用*/}
+        <main id="page-wrap">
+          <Routes>
+            <Route path="/" element={<Home />} /> 
+            <Route path="/src/components/TodoApps.js" element={<TodoApps />} />
+            <Route path="/src/components/inquiry.js" element={<Inquiry />} />
+            <Route path="/src/components/CalendarApp.js" element={<CalendarApp />} /> 
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>           
         </div>
       </div>
-    </>
+      </div>
+  </Router>
+</>
   );
 }
 
