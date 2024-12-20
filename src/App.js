@@ -59,7 +59,7 @@ function App() {
           <Link className="menu-item" to="/src/components/CalendarApp.js">簡易カレンダーアプリを開く</Link>
           <Link className="menu-item" to="https://quiz-app2-masatuber.netlify.app" target="_blank" rel="noopener noreferrer">クイズアプリを開く</Link>
           <Link className="menu-item" to="https://www.youtube.com/@uverworldroyz1231/about" target="_blank" rel="noopener noreferrer">Youtubeチャンネルはこちら</Link>
-          <Link className="menu-item" to="/src/components/Inquiry.js">開発者にお問い合わせページはこちら</Link>
+          <Link className="menu-item" to="/src/components/Inquiry.js">開発者にお問合せページはこちら</Link>
           </Menu>
           
           {/* タイトルよりも上に配置する */}
