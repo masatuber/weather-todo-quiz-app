@@ -42,9 +42,9 @@ h1 {
 @media only screen and (max-width: 1000px) {
     .container {
         width: min(95vw, 95vh * 0.75);
-        /* 横幅の計算 */
+            /* 横幅の計算 */
         height: min(95vh, 95vw / 0.75);
-        /* 縦幅の計算 */
+            /* 縦幅の計算 */
         padding: 15px 10px;
         border-radius: 10px;
         margin: 5px auto;
@@ -55,11 +55,11 @@ h1 {
 @media only screen and (max-width: 500px) {
     .container {
         width: min(95vw, 95vh * 0.75);
-        /* 横幅の計算 */
+            /* 横幅の計算 */
         height: min(95vh, 95vw / 0.75);
-        /* 縦幅の計算 */
+            /* 縦幅の計算 */
         padding: 5px 5px;
-        font-size: 1.15rem;
+        font-size: 1.5rem;
         margin: 5px auto;
     }
 }
@@ -80,7 +80,7 @@ h2 {
 input[type="text"] {
     background-color: transparent;
     border: 0;
-    border-bottom: solid 1px #f15186;
+    border-bottom: solid 1px #f43071;
     width: 40%;
     padding-bottom: 4px;
     color: #fff !important;
@@ -106,7 +106,7 @@ button {
 }
 
 button:hover {
-    opacity: 0.9
+    opacity: 0.8
 }
 
 *:focus {
@@ -175,12 +175,12 @@ body {
     font-family: 'Raleway', 'Noto Sans JP', sans-serif;
     font-weight: 400;
     font-size: 1.6rem;
-    color: #64d418;
+    color: #030303;
     font-display: auto;
     margin: 0 auto;
     padding: 0;
     z-index: 9;
-    background-color: #89cffae6
+    background-color: #89cffae6   
 }
 
 .App {
@@ -202,11 +202,26 @@ body {
 }
 
 .todo {
-    background-color: #070000e6;
+    background-color: #270101;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.btnTodo{
+    background-color: #18a2e1;
+    width: 20%;
+}
+.btnTodoExcel {
+    background-color: #0d8a04;
+    width: 25%;
+    
+}
+
+.pgLoading {
+    font-size: 50px;
+    color: #f40a0afd;
 }

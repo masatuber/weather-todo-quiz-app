@@ -19,4 +19,5 @@ export class Inquiry extends React.Component {
     }
 }; 
 
+
 export default Inquiry;
