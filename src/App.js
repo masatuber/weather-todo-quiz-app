@@ -23,14 +23,11 @@ const [city, setCity] = useState("");
   const [results, setResults] = useState({
     country: "",
     cityName: "",
-    temperature: "",
-    condition: "",
-    icon: "",
+    temperature: "", 
+    conditionText: "",
+    icon: ""
   });
-//リンクで切替わるため、アラート表示でユーザーに知らせる。
-  const buttonAlert1 = () => alert("ページが切替わりました。");
-  //天気ページに国一覧検索サイトボタンがあるため、外部サイトリンクを開くアラートを知らせる
-  const buttonAlert2 = () => alert("外部サイトが開きました。\n世界国別一覧が調べる事が出来ます。");
+
 //APIと連動させる処理
   const getWeather = (e) => {
     e.preventDefault();
@@ -42,13 +39,19 @@ const [city, setCity] = useState("");
           cityName: res.data.location.name,
           temperature: res.data.current.temp_c,
           condition: res.data.current.condition.text,
-          icon: res.data.current.condition.icon,
+          icon: res.data.current.condition.icon
         })
         setCity("");
         setLoading(false);
       })
       .catch( err => alert("エラーが発生しました。ページをリロードして、もう一度トライしてください。"));
   }
+  //リンクで切替わるため、アラート表示でユーザーに知らせる、動的にメッセージが表示される関数定義
+  const showAlert = (message) => {
+    alert(message);
+  };
+  //天気ページに国一覧検索サイトボタンがあるため、外部サイトリンクを開くアラートを知らせる
+  const buttonAlert2 = () => alert("外部サイトが開きました。\n世界国別一覧が調べる事が出来ます。");
 //コンポーネント配置
   return (
     <>
@@ -60,12 +63,18 @@ const [city, setCity] = useState("");
               <div className="container">
   {/* ハンバーガーメニュー 配置用*/}
                 <Menu>
-                  <Link className="menu-item" onClick={buttonAlert1} to="/">World Weather アプリ</Link>
-                  <Link className="menu-item" onClick={buttonAlert1} to="/TodoApps">ReactTodoアプリを開く</Link>
-                  <Link className="menu-item" onClick={buttonAlert1} to="/Calendar">簡易カレンダーアプリを開く</Link>
-                  <Link className="menu-item" onClick={buttonAlert1} to="https://quiz-app2-masatuber.netlify.app" target="_blank" rel="noopener noreferrer">クイズアプリを開く</Link>
-                  <Link className="menu-item" onClick={buttonAlert1} to="https://www.youtube.com/@uverworldroyz1231/about" target="_blank" rel="noopener noreferrer">Youtubeチャンネルはこちら</Link>
-                  <Link className="menu-item" onClick={buttonAlert1} to="/Inquiry">開発者にお問合せページはこちら</Link>
+                  <Link className="menu-item" onClick={() => showAlert("World Weatherアプリが開きました。") }
+                    to="/">World Weather アプリ</Link>
+                  <Link className="menu-item" onClick={() => showAlert("ReactTodoアプリが開きました。") } 
+                    to="/TodoApps">ReactTodoアプリを開く</Link>
+                  <Link className="menu-item" onClick={() => showAlert("簡易カレンダーアプリが開きました。") } 
+                    to="/Calendar">簡易カレンダーアプリを開く</Link>
+                  <Link className="menu-item"  onClick={() => showAlert("クイズアプリが新規タブで開きました。") }
+                    to="https://quiz-app2-masatuber.netlify.app" target="_blank" rel="noopener noreferrer">クイズアプリを開く</Link>
+                  <Link className="menu-item" onClick={() => showAlert("Youtubeチャンネルが新規タブで開きました。") }
+                    to="https://www.youtube.com/@uverworldroyz1231" target="_blank" rel="noopener noreferrer">Youtubeチャンネルはこちら</Link>
+                  <Link className="menu-item" onClick={() => showAlert("お問合せページが開きました。") }
+                    to="/Inquiry">開発者にお問合せページはこちら</Link>
                 </Menu>
   {/* タイトルよりも上に配置する タイトルは常にレンダーする */}
                 <Title />                       
@@ -92,7 +101,6 @@ const [city, setCity] = useState("");
                     <Route path="/Calendar" element={<CalendarApp />} />
                     <Route path="/Inquiry" element={<Inquiry />} />
                     <Route path="*" element={<NotFound />} />
-                    <Route path="/" element={<Home />} />
                   </Routes>
                 </main>
               </div>
@@ -102,6 +110,6 @@ const [city, setCity] = useState("");
       </Router>
     </>
   );
-}
+};
 
 export default App;
