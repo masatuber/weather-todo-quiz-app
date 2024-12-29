@@ -21,24 +21,26 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("./background-image.jpg");
-    background-size: contain;
     background-repeat: repeat;
-    background-color: #18a2e1;
-    
 }
 
+.home-background {
+    background: url("./background-image.jpg");
+    background-size: cover;
+    background-position: initial;
+    height: 90vh;
+    width: 100%;
+}
 .container {
     width: 80%;
     text-align: center;
-    padding: 30px 30px;
+    padding: 5px 5px;
     border-radius: 15px;
-    backdrop-filter: blur(20px);
-    box-shadow: 4px 4px 13px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 4px 4px 13px 5px rgba(136, 134, 134, 0.25);
     margin: 0px;
     transition: all 0.5s ease;
 }
-
+/* メディアクエリでスマホ対応CSS */
 @media only screen and (max-width: 1000px) {
     .container {
         width: min(95vw, 95vh * 0.75);
@@ -73,7 +75,7 @@ h1 {
 }
 
 h2 {
-    font-size: 1em
+    font-size: 1em;
 }
 
 /* Form.js */
@@ -90,23 +92,23 @@ input[type="text"] {
     margin-right: 20px;
     font-size: 20px;
 }
-
-button {
-    width: 40%;
-    border: 0;
-    padding: 8px 20px;
-    margin: 0 2px;
-    border-radius: 2px;
-    letter-spacing: 1px;
+/* 検索ボタン用CSS */
+.button1 {    
+    border-bottom: 5px solid #812002;
     font-size: 1.5rem;
     cursor: pointer;
-    background-color: #f180e8;
     color: #fff;
+    position: absolute;
+    width: 20%;
+    background-color: #ff0000;
+    left: 68%;
 
 }
 
-button:hover {
-    opacity: 0.9
+.button1:hover {
+        margin-top: 15px;
+        border-bottom: 1px solid #ff840a;
+        opacity: 1;
 }
 
 *:focus {
@@ -115,31 +117,46 @@ button:hover {
 
 /* Results.js */
 .results-city {
-    font-size: 4rem;
+    font-size: 2.5rem;
+    color: #bd1414;
 }
-
+/* Results.js */
 .results-country {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    color: #bd1414;
 }
-
+/* Results.js */
 .results-temp {
-    font-size: 5rem;
-    margin: 1px 1px;
-    color: #520c0c;
+    font-size: 2.5rem;
+    margin: 10px 10px;
+    color: #b70e0e;
     position: relative;
-    z-index: 10;
+    
 }
-
+/* Results.js */
 .results-temp > span {
-    font-size: 3rem;
-    color: #333;
+    font-size: 2rem;
+    color: #482121;
 }
-
+/* Results.js 　アニメーション追加*/
 .results-condition {
-    display: flex;
+    position: absolute;
+    top: 70%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    display: block;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem;
+    font-size: 3rem;
+    cursor: pointer;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    border-radius: 3px;
+}
+/* Results.js */
+.results-condition:hover{
+    box-shadow: 0 16px 20px -8px rgba(108, 74, 74, 0.4);
 }
 
 /* Loading.js */
@@ -165,7 +182,7 @@ button:hover {
 
 /* DigitalDateTime.js */
 .dit {
-    height: 80px;
+    height: 20px;
     font-size: 20px;
     font-family: 'Noto Sans JP'
 }
@@ -181,7 +198,7 @@ body {
     font-display: auto;
     margin: 0 auto;
     padding: 0;    
-    background-color: #89cffae6   
+       
 }
 
 .App {
@@ -197,26 +214,27 @@ body {
     color: #e9a915fd;
     
 }
-
+/* リアルタイム表示のCSS */
 .dit {
     text-align: center;
 }
 
-.todo {
-    background-color: #270101;
-}
-
-
+/* タスク管理用ボタンCSS */
 .btnTodo{
-    background-color: #18a2e1;
+    background-color: #59e8e6;
     width: 20%;
 }
+/* Excelエクスポートボタン用CSS */
 .btnTodoExcel {
-    background-color: #0d8a04;
-    width: 25%;
-    
+    position: absolute;
+    background-color: #13a109;
+    background-repeat: repeat;
+    width: 16%;
+    left: 20%;
+    top: 68%;
 }
 
+/* 遅延ページでローディングを表示させるCSS */
 .pgLoading {
     font-size: 50px;
     color: #f40a0afd;

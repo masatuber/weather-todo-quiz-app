@@ -1,5 +1,5 @@
 import React, { useState, Suspense, lazy } from "react"; //ページ単位でロードするように設定
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; //as　routerを使用
+import { BrowserRouter as Router, Routes, Route, Link,  } from "react-router-dom"; //as　routerを使用
 import axios from "axios";
 import './App.css';
 import './HamburgerMenu.css'; //ハンバーガーメニュー用CSS
@@ -8,9 +8,10 @@ import Loading from "./components/Loading";
 import Results from "./components/Results";
 import Form from "./components/Form";
 import Digit from "./components/DigitalDateTime";
+import Home from "./components/home";　//Homeは遅延レンダリングさせないので通常インポート
 import { bubble as Menu } from "react-burger-menu"; //ハンバーガーメニューライブラリ使用
+//import DarkMode from './components/DarkMode';
 // 動的インポート
-const Home = lazy(() => import('./components/home'));
 const NotFound = lazy(() => import('./components/not_found'));
 const TodoApps = lazy(() => import('./components/TodoApps'));
 const Inquiry = lazy(() => import('./components/Inquiry'));
@@ -24,7 +25,7 @@ const [city, setCity] = useState("");
     country: "",
     cityName: "",
     temperature: "", 
-    conditionText: "",
+    condition: "",
     icon: ""
   });
 
@@ -55,7 +56,7 @@ const [city, setCity] = useState("");
 //コンポーネント配置
   return (
     <>
-      <Router>
+      <Router>      
   {/* 遅延用ラップ　Suspense　*/}
         <Suspense fallback={<div className="pgLoading">Loading.......</div>}>
           <div id="App">
@@ -77,35 +78,57 @@ const [city, setCity] = useState("");
                     to="/Inquiry">開発者にお問合せページはこちら</Link>
                 </Menu>
   {/* タイトルよりも上に配置する タイトルは常にレンダーする */}
-                <Title />                       
-                <div className="dit">
-                      <font color="black"><Digit /></font>
-                </div>
+                
+                 
                         
   {/* ルーティング 用*/}
   {/*フラグメントで複数のコーポメントreturnさせる*/}
-                <main id="page-wrap">
+                <main>
                   <Routes>
-                    <Route path="/" element={
+                    <Route path="/" element={<div className="home-background">
+                              <>
+      {/* ホームform時計結果ボタン常時表示 */}
+                            <Title />         
+                              <div className="dit">
+                                    <font color="black"><Digit /></font>
+                              </div>
+                          <Home />                          
+                              <Link onClick={buttonAlert2} to="https://www.asahi-net.or.jp/~yq3t-hruc/flag_J_ALL.html" target="_blank" rel="noopener noreferrer">世界地図</Link>
+                            <Form getWeather={getWeather} setCity={setCity} city={city} />
+                                {loading ? <Loading /> : <Results results={results} />} 
+                          </>
+                        </div> 
+                        // ↑className="home-backgroundの終了タグ
+                    }  />
+                    <Route path="/TodoApps" element={
+                        <>
+                          <TodoApps />
+                        </>
+                      } />
+                    <Route path="/Calendar" element={
                       <>
-  {/* ホームform時計結果ボタン常時表示 */}
-                        <Home />                                            
-                        <Form getWeather={getWeather} setCity={setCity} city={city} />
-                            {loading ? <Loading /> : <Results results={results} />}
-                        <button>
-                          <Link onClick={buttonAlert2} to="https://www.asahi-net.or.jp/~yq3t-hruc/flag_J_ALL.html" target="_blank" rel="noopener noreferrer">世界地図</Link>
-                        </button>
+                        <Title />     
+                              <div className="dit">
+                                    <font color="black"><Digit /></font>
+                              </div>
+                        <CalendarApp />
                       </>
-                    } />
-                    <Route path="/TodoApps" element={<TodoApps />} />
-                    <Route path="/Calendar" element={<CalendarApp />} />
-                    <Route path="/Inquiry" element={<Inquiry />} />
-                    <Route path="*" element={<NotFound />} />
+                  } />
+                    <Route path="/Inquiry" element={
+                      <>
+                      <Title />
+                              <div className="dit">
+                                    <font color="black"><Digit /></font>
+                              </div>
+                      <Inquiry />
+                      </>
+                      } />
+                    <Route path="*" element={<NotFound />} />                    
                   </Routes>
                 </main>
               </div>
             </div>
-          </div>
+          </div>        
         </Suspense>
       </Router>
     </>
