@@ -1,10 +1,10 @@
 //inquiryのページ
 import React from 'react'
 //メーラー起動はaタグで実装し、別ページとしてルーティング設定
-export class Inquiry extends React.Component {
-    render() {
-        return (
-          <>
+const Inquiry = () => {
+
+    return (
+        <>
             <font size="3">
                 <font color="black">   
                     <p>
@@ -14,10 +14,8 @@ export class Inquiry extends React.Component {
                     </p>
                 </font>
             </font>
-          </>
-        ); 
-    }
+        </>
+    );     
 }; 
-
 
 export default Inquiry;

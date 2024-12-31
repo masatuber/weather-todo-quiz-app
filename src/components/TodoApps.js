@@ -1,21 +1,13 @@
+import TodoList from "./TodoList"; //コンポーネント
+import Title from './Title';
+import Digit from './DigitalDateTime';
 import React, { useState, useRef } from "react";
-import TodoList from "./TodoList";
 import { v4 as uuidv4 } from "uuid";
 import * as XLSX from "xlsx"; // xlsxライブラリ
 import { saveAs } from "file-saver"; // file-saverライブラリ
-import {
-  createTheme,
-  ThemeProvider,
-  CssBaseline,
-  Container,
-  Typography,
-  TextField,
-  Button,
-  Box,
-  Paper,
-} from "@mui/material";
-import Title from './Title';
-import Digit from './DigitalDateTime';
+import { createTheme, ThemeProvider, CssBaseline, Container, Typography, TextField, Button, Box, Paper} from "@mui/material"; //MUI
+import TaskAltTwoToneIcon from '@mui/icons-material/TaskAltTwoTone'; //タスクチェックアイコン導入
+
 function TodoApps() {
   const [todos, setTodos] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
@@ -68,7 +60,7 @@ function TodoApps() {
     XLSX.utils.book_append_sheet(workbook, worksheet, "未完了タスク一覧");
     const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
     const data = new Blob([excelBuffer], { type: "application/octet-stream" });
-    saveAs(data, "IncompleteTasks.xlsx");
+    saveAs(data, "Tasks.xlsx");
   };
 
   return (
@@ -79,23 +71,24 @@ function TodoApps() {
       <Container component={Paper} style={{ padding: "10px", marginTop: "1%" }}>
         <Box textAlign="center">
           <Typography variant="h4" gutterBottom>
-            <Button
+          <Button
             variant="contained"
             onClick={() => setDarkMode((prevMode) => !prevMode)}
             style={{ marginBottom: "10px" }}
           >
            {darkMode ? "ライトモードに切り替え" : "ダークモードに切り替え"}
           </Button>
-          <br/>
-            Todoリスト管理画面<br/>
-            <font size="2">機能：サーバーレス 未完了タスクをExcelに転記可能 ダークモード切替可能。</font>
+              <br/>
+              Todoリスト管理画面<br/>
+              <font size="2">機能：サーバーレス 未完了タスクをExcelに転記可能 ダークモード切替可能。</font>
+            <TaskAltTwoToneIcon sx={{ fontSize: 20 }}/>
           </Typography>
           <Box marginBottom={10}>
             <TodoList todos={todos} toggleTodo={toggleTodo} />
           </Box>
           <TextField
             inputRef={todoNameRef}
-            label="タスク名を入力"
+            label="タスクを入力"
             variant="outlined"
             fullWidth
             style={{ marginBottom: "10px" }}
@@ -127,7 +120,7 @@ function TodoApps() {
           </Box>
           <Typography variant="body1" marginTop={1}>
             未完了のタスク: {todos.filter((todo) => !todo.completed).length}
-          </Typography>
+          </Typography>          
         </Box>
       </Container>
     </ThemeProvider>

@@ -104,7 +104,7 @@ input[type="text"] {
     left: 68%;
 
 }
-
+/* 天気検索ボタンCSS */
 .button1:hover {
         margin-top: 15px;
         border-bottom: 1px solid #ff840a;
@@ -117,42 +117,40 @@ input[type="text"] {
 
 /* Results.js */
 .results-city {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #bd1414;
 }
 /* Results.js */
 .results-country {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #bd1414;
 }
 /* Results.js */
 .results-temp {
-    font-size: 2.5rem;
-    margin: 10px 10px;
+    font-size: 2rem;
+    margin: 2px 2px;
     color: #b70e0e;
     position: relative;
     
 }
 /* Results.js */
 .results-temp > span {
-    font-size: 2rem;
-    color: #482121;
+    font-size: 1.5rem;
+    color: #b70e0e;
 }
 /* Results.js 　アニメーション追加*/
 .results-condition {
     position: absolute;
-    top: 70%;
+    top: 79%;
     left: 40%;
     transform: translate(-50%, -50%);
     margin: 0;
     display: block;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
+    font-size: 2rem;
     cursor: pointer;
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
-    border-radius: 3px;
+    -webkit-transition: all 0.8s;
+    transition: all 0.8s;
+    border-radius: 2px;
 }
 /* Results.js */
 .results-condition:hover{
@@ -238,4 +236,13 @@ body {
 .pgLoading {
     font-size: 50px;
     color: #f40a0afd;
+}
+/* マテリアルアイコンのCSS */
+.reload {
+    cursor: pointer;
+    color: #f4480afd;
+}
+/* マテリアルアイコンのマウスホバー */
+.reload:hover {
+    background-color: #701919;
 }

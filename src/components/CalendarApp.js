@@ -1,5 +1,7 @@
+//CalendarApp.js
 import React, { useState } from "react";
 import '../Calendar.css';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 const CalendarApp = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
 
@@ -55,6 +57,7 @@ const CalendarApp = () => {
     <div id="calendar">
       <div className="CalendarBody">
       <div className="cld">
+        
         <button onClick={handlePrevMonth}>＜</button>
         <h2>{`${year}年 ${month + 1}月`}</h2>
         <button onClick={handleNextMonth}>＞</button>
@@ -74,6 +77,7 @@ const CalendarApp = () => {
         <tbody>{generateCalendar()}</tbody>
       </table>
       <p>カレンダーアプリ</p>
+      <CalendarMonthIcon color="secondary" sx={{ fontSize: 25 }}/>
     </div>
     </div>
   );

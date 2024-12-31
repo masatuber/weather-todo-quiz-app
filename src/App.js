@@ -1,6 +1,9 @@
 import React, { useState, Suspense, lazy } from "react"; //ページ単位でロードするように設定
-import { BrowserRouter as Router, Routes, Route, Link,  } from "react-router-dom"; //as　routerを使用
+import { Routes, Route, Link,  } from "react-router-dom"; //BrowserRouterをindex.jsに移動しコード改善
 import axios from "axios";
+import { bubble as Menu } from "react-burger-menu"; //ハンバーガーメニューライブラリ使用
+import HomeIcon from '@mui/icons-material/Home';  //Homeアイコン導入
+import AutorenewIcon from '@mui/icons-material/Autorenew';  //リロードアイコン導入
 import './App.css';
 import './HamburgerMenu.css'; //ハンバーガーメニュー用CSS
 import Title from "./components/Title";
@@ -9,8 +12,7 @@ import Results from "./components/Results";
 import Form from "./components/Form";
 import Digit from "./components/DigitalDateTime";
 import Home from "./components/home";　//Homeは遅延レンダリングさせないので通常インポート
-import { bubble as Menu } from "react-burger-menu"; //ハンバーガーメニューライブラリ使用
-//import DarkMode from './components/DarkMode';
+
 // 動的インポート
 const NotFound = lazy(() => import('./components/not_found'));
 const TodoApps = lazy(() => import('./components/TodoApps'));
@@ -53,10 +55,13 @@ const [city, setCity] = useState("");
   };
   //天気ページに国一覧検索サイトボタンがあるため、外部サイトリンクを開くアラートを知らせる
   const buttonAlert2 = () => alert("外部サイトが開きました。\n世界国別一覧が調べる事が出来ます。");
+  //マテリアルアイコンのリロードイベント（ページリロード） functionで定義
+  function reloadPage() {
+  window.location.reload();
+};
 //コンポーネント配置
   return (
-    <>
-      <Router>      
+    <>    
   {/* 遅延用ラップ　Suspense　*/}
         <Suspense fallback={<div className="pgLoading">Loading.......</div>}>
           <div id="App">
@@ -77,24 +82,24 @@ const [city, setCity] = useState("");
                   <Link className="menu-item" onClick={() => showAlert("お問合せページが開きました。") }
                     to="/Inquiry">開発者にお問合せページはこちら</Link>
                 </Menu>
-  {/* タイトルよりも上に配置する タイトルは常にレンダーする */}
-                
-                 
-                        
+  {/* タイトルよりも上に配置する タイトル、時計は常にレンダーする */}
   {/* ルーティング 用*/}
   {/*フラグメントで複数のコーポメントreturnさせる*/}
                 <main>
                   <Routes>
-                    <Route path="/" element={<div className="home-background">
+                    <Route index element={<div className="home-background">
                               <>
-      {/* ホームform時計結果ボタン常時表示 */}
-                            <Title />         
+        {/* ホームForm時計結果ボタン常時表示 */}
+                            <HomeIcon color="secondary" sx={{ fontSize: 35 }}/>
+                            <Title />
                               <div className="dit">
                                     <font color="black"><Digit /></font>
                               </div>
-                          <Home />                          
+                          <Home />                         
                               <Link onClick={buttonAlert2} to="https://www.asahi-net.or.jp/~yq3t-hruc/flag_J_ALL.html" target="_blank" rel="noopener noreferrer">世界地図</Link>
                             <Form getWeather={getWeather} setCity={setCity} city={city} />
+                            <AutorenewIcon sx={{ fontSize: 25 }} onClick={reloadPage} className="reload"/>
+          {/* ↑マテリアルアイコンリロードrenderする */}
                                 {loading ? <Loading /> : <Results results={results} />} 
                           </>
                         </div> 
@@ -130,7 +135,6 @@ const [city, setCity] = useState("");
             </div>
           </div>        
         </Suspense>
-      </Router>
     </>
   );
 };
