@@ -49,7 +49,7 @@ const [city, setCity] = useState("");
         setCity("");
         setLoading(false);
       })
-      .catch( error => alert("エラーが発生しました。ページをリロードして、もう一度トライしてください。"));
+      .catch(( ) => alert("エラーが発生しました。ページをリロードして、もう一度トライしてください。"));
   }
   //リンクで切替わるため、アラート表示でユーザーに知らせる、動的にメッセージが表示される関数定義 error
   const showAlert = (message) => {
