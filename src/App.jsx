@@ -63,103 +63,213 @@ const [city, setCity] = useState("");
 };
 //コンポーネント配置
   return (
-    <>    
-  {/* 遅延用ラップSuspense*/}
-        <Suspense fallback={<div className="pgLoading">Loading.......</div>}>
-          <div id="App">
-            <div className="wrapper">
-              <div className="container">
-  {/* ハンバーガーメニュー 配置用*/}
-                <Menu>
-                  <Link className="menu-item" onClick={() => showAlert("World Weatherアプリが開きました。") }
-                    to="/">World Weather アプリ</Link>
-                  <Link className="menu-item" onClick={() => showAlert("ReactTodoアプリが開きました。") } 
-                    to="/TodoApps">ReactTodoアプリを開く</Link>
-                  <Link className="menu-item" onClick={() => showAlert("簡易カレンダーアプリが開きました。") } 
-                    to="/Calendar">簡易カレンダーアプリを開く</Link>
-                    <Link className="menu-item" onClick={() => showAlert("パスワード生成アプリが開きました。") }
-                    to="/PasswordGenerator">パスワード生成アプリを開く</Link>
-                    <Link className="menu-item" onClick={() => showAlert("Python exeダウンロードページ開きました。") }
-                    to="/PythonDlPage">Python exeダウンロードページ</Link>        
-                  <Link className="menu-item"  onClick={() => showAlert("クイズアプリが新規タブで開きました。") }
-                    to="https://quiz-app2-masatuber.netlify.app" target="_blank" rel="noopener noreferrer">クイズアプリを開く</Link>
-                  <Link className="menu-item" onClick={() => showAlert("Youtubeチャンネルが新規タブで開きました。") }
-                    to="https://www.youtube.com/@uverworldroyz1231" target="_blank" rel="noopener noreferrer">Youtubeチャンネルはこちら</Link>
-                  <Link className="menu-item" onClick={() => showAlert("お問合せページが開きました。") }
-                    to="/Inquiry">開発者にお問合せページはこちら</Link>
-                    
-                </Menu>
-  {/* タイトルよりも上に配置する タイトル、時計は常にレンダーする */}
-  {/* ルーティング 用*/}
-  {/*フラグメントで複数のコーポメントreturnさせる*/}
-                <main>
-                  <Routes>
-                    <Route index element={<div className="home-background">
-                              <>
-        {/* ホームForm時計結果ボタン常時表示 */}
-                            <HomeIcon color="secondary" sx={{ fontSize: 35 }}/>
-                            <Title />
-                              <div className="dit">
-                                    <font color="black"><Digit /></font>
-                              </div>
-                          <Home />                         
-                              <Link onClick={buttonAlert2} to="https://www.asahi-net.or.jp/~yq3t-hruc/flag_J_ALL.html" target="_blank" rel="noopener noreferrer">世界地図</Link>
-                            <Form getWeather={getWeather} setCity={setCity} city={city} />
-                            <AutorenewIcon sx={{ fontSize: 25 }} onClick={reloadPage} className="reload"/>
-          {/* ↑マテリアルアイコンリロードrenderする */}
-                                {loading ? <Loading /> : <Results results={results} />} 
-                          </>
-                        </div> 
-                        // ↑className="home-backgroundの終了タグ
-                    }  />
-                    <Route path="/TodoApps" element={
-                        <>
-                          <TodoApps />
-                        </>
-                      } />
-                    <Route path="/Calendar" element={
+    <>
+      {/* 遅延用ラップSuspense*/}
+      <Suspense fallback={<div className="pgLoading">Loading.......</div>}>
+        {/* <div id="App"> */}
+          <div className="wrapper">
+            <div className="container">
+              {/* ハンバーガーメニュー 配置用*/}
+              <Menu>
+                <Link
+                  className="menu-item"
+                  onClick={() => showAlert("World Weatherアプリが開きました。")}
+                  to="/"
+                >
+                  World Weather アプリ
+                </Link>
+                <Link
+                  className="menu-item"
+                  onClick={() =>
+                    showAlert("ジェミニカスタムAppが新規タブで開きました。")
+                  }
+                  to="https://gemini-bot-v025.onrender.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ジェミニカスタムAppはこちら
+                </Link>
+                {/* chat bot API追加 */}
+                <Link
+                  className="menu-item"
+                  onClick={() => showAlert("ReactTodoアプリが開きました。")}
+                  to="/TodoApps"
+                >
+                  ReactTodoアプリを開く
+                </Link>
+                <Link
+                  className="menu-item"
+                  onClick={() =>
+                    showAlert("簡易カレンダーアプリが開きました。")
+                  }
+                  to="/Calendar"
+                >
+                  簡易カレンダーアプリを開く
+                </Link>
+                <Link
+                  className="menu-item"
+                  onClick={() =>
+                    showAlert("パスワード生成アプリが開きました。")
+                  }
+                  to="/PasswordGenerator"
+                >
+                  パスワード生成アプリを開く
+                </Link>
+                <Link
+                  className="menu-item"
+                  onClick={() =>
+                    showAlert("Python exeダウンロードページ開きました。")
+                  }
+                  to="/PythonDlPage"
+                >
+                  Python exeダウンロードページ
+                </Link>
+                <Link
+                  className="menu-item"
+                  onClick={() =>
+                    showAlert("クイズアプリが新規タブで開きました。")
+                  }
+                  to="https://quiz-app2-masatuber.netlify.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  クイズアプリを開く
+                </Link>
+                <Link
+                  className="menu-item"
+                  onClick={() =>
+                    showAlert("Youtubeチャンネルが新規タブで開きました。")
+                  }
+                  to="https://www.youtube.com/@uverworldroyz1231"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Youtubeチャンネルはこちら
+                </Link>
+                <Link
+                  className="menu-item"
+                  onClick={() => showAlert("お問合せページが開きました。")}
+                  to="/Inquiry"
+                >
+                  開発者にお問合せページはこちら
+                </Link>
+              </Menu>
+            {/* </div> */}
+            {/* タイトルよりも上に配置する タイトル、時計は常にレンダーする */}
+            {/* ルーティング 用*/}
+            {/*フラグメントで複数のコーポメントreturnさせる*/}
+            <main>
+              <Routes>
+                <Route
+                  index
+                  element={
+                    <div className="home-background">
                       <>
-                        <div className="backgroundCalendar">
-                          <Title />
-                                <div className="dit">
-                                      <font color="black"><Digit /></font>
-                                </div>
-                          <CalendarApp />
-                        </div>
-                      </>
-                  } />
-                    <Route path="/Inquiry" element={
-                      <>
+                        {/* ホームForm時計結果ボタン常時表示 */}
+                        <HomeIcon color="secondary" sx={{ fontSize: 35 }} />
                         <Title />
-                                <div className="dit">
-                                      <font color="black"><Digit /></font>
-                                </div>
-                        <Inquiry />
-                      </>
-                      } />
-                      <Route path="/PasswordGenerator" element={<div className="password-background">
-                        <>
-                            <PasswordGenerator /> 
-                            <Digit />                     
-                          </>
+                        <div className="dit">
+                          <font color="black">
+                            <Digit />
+                          </font>
                         </div>
-                      } />
-                      <Route path="/PythonDlPage" element={
-                          <>
-                            <h1> Pythonスクリプト exe ファイルダウンロードページ</h1>
-                            <div className="dit">
-                                        <font color="black"><Digit /></font>
-                            </div>
-                              <PythonDlPage />
-                          </>
-                      } />
-                    <Route path="*" element={<NotFound />} />                    
-                  </Routes>
-                </main>
-              </div>
-            </div>
-          </div>        
-        </Suspense>
+                        <Home />
+                        <Link
+                          onClick={buttonAlert2}
+                          to="https://www.asahi-net.or.jp/~yq3t-hruc/flag_J_ALL.html"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          世界地図
+                        </Link>
+                        <Form
+                          getWeather={getWeather}
+                          setCity={setCity}
+                          city={city}
+                        />
+                        <AutorenewIcon
+                          sx={{ fontSize: 25 }}
+                          onClick={reloadPage}
+                          className="reload"
+                        />
+                        {/* ↑マテリアルアイコンリロードrenderする */}
+                        {loading ? <Loading /> : <Results results={results} />}
+                      </>
+                    </div>
+                    // ↑className="home-backgroundの終了タグ
+                  }
+                />
+                <Route
+                  path="/TodoApps"
+                  element={
+                    <>
+                      <div className="todoList">
+                        <TodoApps />
+                      </div>
+                    </>
+                  }
+                />
+                <Route
+                  path="/Calendar"
+                  element={
+                    <>
+                      <div className="backgroundCalendar">
+                        <Title />
+                        <div className="dit">
+                          <font color="black">
+                            <Digit />
+                          </font>
+                        </div>
+                        <CalendarApp />
+                      </div>
+                    </>
+                  }
+                />
+                <Route
+                  path="/Inquiry"
+                  element={
+                    <>
+                      <Title />
+                      <div className="dit">
+                        <font color="black">
+                          <Digit />
+                        </font>
+                      </div>
+                      <Inquiry />
+                    </>
+                  }
+                />
+                <Route
+                  path="/PasswordGenerator"
+                  element={
+                    <div className="password-background">
+                      <>
+                        <PasswordGenerator />
+                        <Digit />
+                      </>
+                    </div>
+                  }
+                />
+                <Route
+                  path="/PythonDlPage"
+                  element={
+                    <>
+                      <h1> Pythonスクリプト exe ファイルダウンロードページ</h1>
+                      <div className="dit">
+                        <font color="black">
+                          <Digit />
+                        </font>
+                      </div>
+                      <PythonDlPage />
+                    </>
+                  }
+                />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </main>
+          </div>
+        </div>
+      </Suspense>
     </>
   );
 };
