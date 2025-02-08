@@ -1,23 +1,28 @@
+//TodoApps.js
 import TodoList from "./TodoList"; //コンポーネント
-import Title from './Title';
-import Digit from './DigitalDateTime';
+import Title from "./Title";
+import Digit from "./DigitalDateTime";
 import { useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import * as XLSX from "xlsx"; // xlsxライブラリ
 import { saveAs } from "file-saver"; // file-saverライブラリ
-import { createTheme, ThemeProvider, CssBaseline, Container, Typography, TextField, Button, Box, Paper } from "@mui/material"; //MUI
-import TaskAltTwoToneIcon from '@mui/icons-material/TaskAltTwoTone'; //タスクチェックアイコン導入
+import {
+  createTheme,
+  ThemeProvider,
+  CssBaseline,
+  Container,
+  Typography,
+  TextField,
+  Button,
+  Box,
+  Paper,
+} from "@mui/material"; //MUI
+import TaskAltTwoToneIcon from "@mui/icons-material/TaskAltTwoTone"; //タスクチェックアイコン導入
 
 function TodoApps() {
   const [todos, setTodos] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
   const todoNameRef = useRef();
-  const reminderTimeRef = useRef(); // 【追加】リマインダー時間用の参照
-
-  // 【追加】ページロード時に通知の許可をリクエスト
-  if (Notification.permission !== "granted") {
-    Notification.requestPermission();
-  }
 
   // ダークモードのテーマを定義
   const theme = createTheme({
@@ -35,35 +40,12 @@ function TodoApps() {
 
   const handleAddTodo = () => {
     const name = todoNameRef.current.value;
-    const reminderTime = reminderTimeRef.current.value; // 【追加】リマインダー時間取得
-
     if (name === "") return;
-
-    const newTodo = { id: uuidv4(), name, completed: false, reminderTime };
-    setTodos((prevTodos) => [...prevTodos, newTodo]);
-
-    // 【追加】リマインダーをスケジュール
-    if (reminderTime) {
-      scheduleNotification(name, reminderTime);
-    }
-
-    todoNameRef.current.value = "";
-    reminderTimeRef.current.value = ""; // 【追加】入力欄クリア
-  };
-
-  // 【追加】指定時間にブラウザ通知を表示する関数
-  const scheduleNotification = (name, reminderTime) => {
-    const reminderTimestamp = new Date(reminderTime).getTime();
-    const now = Date.now();
-    const delay = reminderTimestamp - now;
-
-    if (delay > 0) {
-      setTimeout(() => {
-        if (Notification.permission === "granted") {
-          new Notification("リマインダー", { body: `「${name}」の時間です！` });
-        }
-      }, delay);
-    }
+    setTodos((prevTodos) => [
+      ...prevTodos,
+      { id: uuidv4(), name, completed: false },
+    ]);
+    todoNameRef.current.value = null;
   };
 
   const toggleTodo = (id) => {
@@ -87,7 +69,10 @@ function TodoApps() {
     const worksheet = XLSX.utils.aoa_to_sheet(taskData);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "未完了タスク一覧");
-    const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+    const excelBuffer = XLSX.write(workbook, {
+      bookType: "xlsx",
+      type: "array",
+    });
     const data = new Blob([excelBuffer], { type: "application/octet-stream" });
     saveAs(data, "Tasks.xlsx");
   };
@@ -108,8 +93,12 @@ function TodoApps() {
               {darkMode ? "ライトモードに切り替え" : "ダークモードに切り替え"}
             </Button>
             <br />
-            Todoリスト管理画面<br />
-            <font size="2">機能：サーバーレス 未完了タスクをExcelに転記可能 ダークモード切替可能。</font>
+            Todoリスト管理画面
+            <br />
+            <font size="2">
+              機能：サーバーレス 未完了タスクをExcelに転記可能
+              ダークモード切替可能。
+            </font>
             <TaskAltTwoToneIcon sx={{ fontSize: 20 }} />
           </Typography>
           <Box marginBottom={10}>
@@ -118,14 +107,6 @@ function TodoApps() {
           <TextField
             inputRef={todoNameRef}
             label="タスクを入力"
-            variant="outlined"
-            fullWidth
-            style={{ marginBottom: "10px" }}
-          />
-          {/* 【追加】リマインダー時間を設定するための入力欄 */}
-          <TextField
-            inputRef={reminderTimeRef}
-            type="datetime-local"
             variant="outlined"
             fullWidth
             style={{ marginBottom: "10px" }}
@@ -147,11 +128,7 @@ function TodoApps() {
             >
               完了したタスクを削除する
             </Button>
-            <Button
-              variant="contained"
-              color="success"
-              onClick={handleExport}
-            >
+            <Button variant="contained" color="success" onClick={handleExport}>
               未完了タスクをExcelにエクスポート
             </Button>
           </Box>

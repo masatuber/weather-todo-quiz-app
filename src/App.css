@@ -215,6 +215,10 @@ body {
     text-align: center;
 }
 
+.todoList {
+    width: 100%;
+}
+
 /* タスク管理用ボタンCSS */
 .btnTodo{
     background-color: #baedec;
