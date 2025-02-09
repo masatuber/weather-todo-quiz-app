@@ -1,5 +1,41 @@
 # React + Vite
-
+天気検索、タスク管理、カレンダー、パスワード生成、ジェミニカスタムAppのリンクを機能として開発<br>
+Python自動化プログラムをexeファイルに変換し共有が可能です。<br>
+AppURL
+[text](https://masatuber-weather-app3.netlify.app/)
+プロジェクトフォルダ階層<br>
+.gitignore<br>
+README.md<br>
+eslint.config.js<br>
+index.html<br>
+package-lock.json<br>
+package.json<br>
+public<br>
+src<br>
+style.css<br>
+vite.config.js<br>
+<br>
+src/App.css<br>
+src/App.jsx<br>
+src/Calendar.css<br>
+src/HamburgerMenu.css<br>
+src/background-image.jpg<br>
+src/background-image2.jpg<br>
+src/components<br>
+src/main.jsx<br>
+src/reportWebVitals.js<br>
+<br>
+<br>
+public/_redirects<br>
+public/favicon.ico<br>
+public/logo192.png<br>
+public/logo512.png<br>
+public/manifest.json<br>
+public/robots.txt<br>
+public/run_pad.exe<br>
+public/sitemap.xml<br>
+<br>
+<br>
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
