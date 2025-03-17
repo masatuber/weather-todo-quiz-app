@@ -1,6 +1,6 @@
 .CalendarBody {
     font-family: Arial, sans-serif;
-    color: #000000;
+    /* color: #000000; */
     text-align: center;
     margin: 0;
     padding: 0;
@@ -23,7 +23,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background: #a2cbf9;
+    background: #d0e6ff;
     border-bottom: 1px solid #ddd;
 }
 
@@ -31,7 +31,7 @@ table {
     width: 100%;
     height: 100%;
     border-collapse: collapse;
-    background: #adcef4;
+    background: #489dff;
 }
 
 th,
@@ -52,11 +52,11 @@ td:hover {
 }
 
 .event-day {
-    background-color: #f4f27d;
+    background-color: #6479a1;
 }
 
 .event {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: #f37318;
 }
 
@@ -65,7 +65,7 @@ td:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: white;
+    /* background: white; */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -82,5 +82,5 @@ td:hover {
 }
 
 .backgroundCalendar {
-    background-color: #c1eeff;
+    background-color: #00bbff;
 }

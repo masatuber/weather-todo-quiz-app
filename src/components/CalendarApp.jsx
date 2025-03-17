@@ -4,6 +4,8 @@ import Modal from "react-modal";
 import localforage from "localforage";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import "../Calendar.css";
+import { Container, createTheme, CssBaseline, Paper, ThemeProvider } from "@mui/material";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 
 Modal.setAppElement("#root");
 
@@ -13,6 +15,19 @@ const CalendarApp = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [eventText, setEventText] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
+  const theme = createTheme({
+      palette: {
+        mode: darkMode ? "dark" : "light",
+        background: {
+          default: darkMode ? "#121212" : "#ffffff", // 背景色の設定
+          paper: darkMode ? "#1d1d1d" : "#ffffff", // Paperコンポーネントの背景色
+        },
+        text: {
+          primary: darkMode ? "#ffffff" : "#000000", // テキストの色
+        },
+      },
+    });
 
   useEffect(() => {
     // 初期化時にローカルストレージからイベントを読み込む
@@ -100,44 +115,58 @@ const CalendarApp = () => {
   };
 
   return (
-    <div id="calendar">
-      <div className="CalendarBody">
-        <div className="cld">
-          <button onClick={handlePrevMonth}>＜</button>
-          <h2>{`${year}年 ${month + 1}月`}</h2>
-          <button onClick={handleNextMonth}>＞</button>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th>日</th>
-              <th>月</th>
-              <th>火</th>
-              <th>水</th>
-              <th>木</th>
-              <th>金</th>
-              <th>土</th>
-            </tr>
-          </thead>
-          <tbody>{generateCalendar()}</tbody>
-        </table>
-        <p>カレンダーアプリ
-          <CalendarMonthIcon color="secondary" sx={{ fontSize: 25 }}/><br/>
-          予定の保存を行いましたら、予定削除は空欄で保存をしてくだいさい。（ローカルストレージに保存されます）
-        </p>
-      </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Container component={Paper} style={{ padding: "10px", marginTop: "1%" }}>
+        <div id="calendar">
+          <div className="CalendarBody">
+            <div className="cld">
+              <DarkModeIcon
+                onClick={() => setDarkMode((prevMode) => !prevMode)}
+              />
+              <button onClick={handlePrevMonth}>＜</button>
+              <h2>{`${year}年 ${month + 1}月`}</h2>
+              <button onClick={handleNextMonth}>＞</button>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>日</th>
+                  <th>月</th>
+                  <th>火</th>
+                  <th>水</th>
+                  <th>木</th>
+                  <th>金</th>
+                  <th>土</th>
+                </tr>
+              </thead>
+              <tbody>{generateCalendar()}</tbody>
+            </table>
+            <span>
+              カレンダーアプリ
+              <CalendarMonthIcon color="secondary" sx={{ fontSize: 25 }} />
+              <br />
+              予定の保存を行いましたら、予定削除は空欄で保存をしてくだいさい。（ローカルストレージに保存されます）
+            </span>
+          </div>
 
-      <Modal isOpen={isModalOpen} onRequestClose={closeModal} className="modal">
-        <h2>{selectedDate}のイベントを登録</h2>
-        <textarea
-          value={eventText}
-          onChange={(e) => setEventText(e.target.value)}
-          placeholder="イベント内容を入力"
-        />
-        <button onClick={saveEvent}>保存</button>
-        <button onClick={closeModal}>キャンセル</button>
-      </Modal>
-    </div>
+          <Modal
+            isOpen={isModalOpen}
+            onRequestClose={closeModal}
+            className="modal"
+          >
+            <h2>{selectedDate}のイベントを登録</h2>
+            <textarea
+              value={eventText}
+              onChange={(e) => setEventText(e.target.value)}
+              placeholder="イベント内容を入力"
+            />
+            <button onClick={saveEvent}>保存</button>
+            <button onClick={closeModal}>キャンセル</button>
+          </Modal>
+        </div>
+      </Container>
+    </ThemeProvider>
   );
 };
 

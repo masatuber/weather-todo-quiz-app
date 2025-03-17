@@ -1,8 +1,14 @@
 # React + Vite
-天気検索、タスク管理、カレンダー、パスワード生成、ジェミニカスタムAppのリンクを機能として開発<br>
-Python自動化プログラムをexeファイルに変換し共有が可能です。<br>
-AppURL
-[text](https://masatuber-weather-app3.netlify.app/)
+天気検索、タスク管理、カレンダー、パスワード生成、ジェミニカスタムAppを機能として開発<br>
+Python自動化プログラムをexeファイルに変換しダウンロード共有が可能です。<br>
+音楽ながらSNSを公開しました。フルスタックアプリです。<br>
+App URL<br>
+https://masatuber-weather-app3.netlify.app/<br>
+ジェミニカスタムAppのソースコード<br>
+https://github.com/masatuber/AIgm.git<br>
+音楽ながらSNSのソースコード<br>
+https://github.com/masatuber/my-sns-front-end.git<br>
+https://github.com/masatuber/my-sns-backend.git<br>
 プロジェクトフォルダ階層<br>
 .gitignore<br>
 README.md<br>

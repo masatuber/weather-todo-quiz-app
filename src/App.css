@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 html {
-    font-size: 62.5%;
+    font-size: 65%;
 }
 
 /* Title.js */
@@ -10,14 +10,14 @@ h1 {
     font-weight: 70;
     font-size: 2em;
     color: rgb(20, 155, 20);
-    padding: 10px;
+    padding: 5px;
     z-index: 11;
 }
 
 /* App.js */
 .wrapper {
     width: 100%;
-    height: 95%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,13 +28,14 @@ h1 {
     background: url("./background-image.jpg");
     background-size: cover;
     background-position: initial;
-    height: 90vh;
+    height: 100vh;
     width: 100%;
 }
 .container {
     width: 80%;
+    height: 100%;
     text-align: center;
-    padding: 5px 5px;
+    /* padding: 5px 5px; */
     border-radius: 15px;
     box-shadow: 4px 4px 13px 5px rgba(136, 134, 134, 0.25);
     margin: 0px;
@@ -75,7 +76,8 @@ h1 {
 }
 
 h2 {
-    font-size: 1em;
+    margin: 10px 0 10px;
+    font-size: 15px;
 }
 
 /* Form.js　inputタグにCSS適用でダークモードに影響でるため文字色削除  */
@@ -110,9 +112,9 @@ input[type="text"] {
         opacity: 1;
 }
 
-*:focus {
+/* *:focus {
     outline: none;
-}
+} */
 
 /* Results.js */
 .results-city {
@@ -194,7 +196,6 @@ body {
     font-display: auto;
     margin: 0 auto;
     padding: 0;    
-       
 }
 
 .App {
@@ -202,8 +203,8 @@ body {
     border: 0;
     padding: 0px 0px;
     margin: 0px;
-    border-radius: 2px;
-    letter-spacing: 1px;
+    /* border-radius: 2px; */
+    /* letter-spacing: 1px; */
     font-size: 1rem;
     cursor: pointer;
     background-color: #d451f1;
@@ -217,6 +218,12 @@ body {
 
 .todoList {
     width: 100%;
+    height: 100%;
+    /* background-color: #13a109; */
+    margin: 0px;
+    padding: 0px;
+
+
 }
 
 /* タスク管理用ボタンCSS */
@@ -252,14 +259,15 @@ body {
 .password-background {
         background: url("./background-image2.jpg");
         background-size: cover;
-        background-position: fixed;
-        height: 100vh;
-        width: 100%;
-        color: #cd0707;
-        font-size: 2rem;       
+        justify-content: center;
+        height: 200vh;
+        width: 180vh;
+        background-position: initial;
+        font-size: 15px;       
         font-weight: 30%;
-        background-color: rgba(212, 188, 214, 0.338);
-        background-blend-mode: lighten;
+        /* 下は状況に応じて変更する */
+        /* background-color: rgba(181, 159, 183, 0.338);
+        background-blend-mode: lighten; */
         
 }
 /* パスワード表示の枠線 */
@@ -267,7 +275,8 @@ body {
     margin: 0 auto;
     padding: 0.2em;
     position: sticky;
-    width: 38%;
+    height: 200px;
+    width: 200px;
     border: solid 2px #706c6c;
     /*線の種類・太さ・色*/
     background-color:#e6ffff;
@@ -275,4 +284,8 @@ body {
 /* パスワード生成ボタン */
 .passwordButton:hover {
     cursor: pointer;
+}
+/* カレンダーのタイトルフォントサイズ */
+.calendarTitle {
+    font-size: 20px;
 }
