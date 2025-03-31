@@ -1,11 +1,13 @@
 //CalendarApp.js
+import "../Calendar.css";
 import  { useState, useEffect } from "react";
 import Modal from "react-modal";
 import localforage from "localforage";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import "../Calendar.css";
 import { Container, createTheme, CssBaseline, Paper, ThemeProvider } from "@mui/material";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
+import DigitalDateTime from "./DigitalDateTime";
+
 
 Modal.setAppElement("#root");
 
@@ -17,17 +19,17 @@ const CalendarApp = () => {
   const [eventText, setEventText] = useState("");
   const [darkMode, setDarkMode] = useState(false);
   const theme = createTheme({
-      palette: {
-        mode: darkMode ? "dark" : "light",
-        background: {
-          default: darkMode ? "#121212" : "#ffffff", // 背景色の設定
-          paper: darkMode ? "#1d1d1d" : "#ffffff", // Paperコンポーネントの背景色
-        },
-        text: {
-          primary: darkMode ? "#ffffff" : "#000000", // テキストの色
-        },
+    palette: {
+      mode: darkMode ? "dark" : "light",
+      background: {
+        default: darkMode ? "#201e1e" : "#ffffff", // 背景色の設定
+        paper: darkMode ? "#201e1e" : "#f5f5f5", // Paperコンポーネントの背景色
       },
-    });
+      text: {
+        primary: darkMode ? "#ffffff" : "#000000", // テキストの色
+      },
+    },
+  });
 
   useEffect(() => {
     // 初期化時にローカルストレージからイベントを読み込む
@@ -117,7 +119,13 @@ const CalendarApp = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container component={Paper} style={{ padding: "10px", marginTop: "1%" }}>
+      <Container
+        component={Paper}
+        elevation={1}
+        style={{ minHeight: "100vh", maxWidth: "100vh" }}
+      >
+        イベント追加が出来るカレンダー(ダークモード対応)
+        <DigitalDateTime />
         <div id="calendar">
           <div className="CalendarBody">
             <div className="cld">
@@ -142,11 +150,13 @@ const CalendarApp = () => {
               </thead>
               <tbody>{generateCalendar()}</tbody>
             </table>
-            <span>
+            <span className="textDescription">
               カレンダーアプリ
               <CalendarMonthIcon color="secondary" sx={{ fontSize: 25 }} />
               <br />
-              予定の保存を行いましたら、予定削除は空欄で保存をしてくだいさい。（ローカルストレージに保存されます）
+              予定の保存を行いましたら、予定削除は空欄で保存をしてください。
+              <br />
+              （ローカルストレージに保存されます）
             </span>
           </div>
 

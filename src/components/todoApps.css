@@ -1,0 +1,22 @@
+.todoContainer {
+  font-size: 20px;
+}
+
+.todoText {
+  font-size: 18px;
+}
+
+.todoDescription {
+  font-size: 16px;
+}
+
+
+
+@media only screen and (max-width: 414px) {
+  .todoText {
+    font-size: 15px !important;
+  }
+    .todoDescription {
+      font-size: 10px !important;
+    }
+}

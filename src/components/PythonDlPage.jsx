@@ -1,10 +1,10 @@
-
+//Python exe ダウンロードページ
 function PythonDlPage() {
   return (
     <>
         <div>
             <p> 
-            <font size="3">
+            <font size="3.5">
                 <br/>
                     C:\Program Files (x86)にPower Automate Desktopがインストールされている時にrun_pad.exeをダブルクリックで起動します。<br/>
                     今後も自動化プログラム追加予定です。<br/>

@@ -1,7 +1,8 @@
 //TodoApps.js
+import './todoApps.css';
 import TodoList from "./TodoList"; //コンポーネント
 import Title from "./Title";
-import Digit from "./DigitalDateTime";
+import DigitalDateTime from './DigitalDateTime';
 import { useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import * as XLSX from "xlsx"; // xlsxライブラリ
@@ -78,66 +79,97 @@ function TodoApps() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Title />
-      <Digit />
-      <Container component={Paper} style={{ padding: "10px", marginTop: "1%" }}>
-        <Box textAlign="center">
-          <Typography variant="h4" gutterBottom>
-            <Button
-              variant="contained"
-              onClick={() => setDarkMode((prevMode) => !prevMode)}
-              style={{ marginBottom: "10px" }}
-            >
-              {darkMode ? "ライトモードに切り替え" : "ダークモードに切り替え"}
-            </Button>
-            <br />
-            Todoリスト管理画面
-            <br />
-            <font size="2">
-              機能：サーバーレス 未完了タスクをExcelに転記可能
-              ダークモード切替可能。
-            </font>
-            <TaskAltTwoToneIcon sx={{ fontSize: 20 }} />
-          </Typography>
-          <Box marginBottom={10}>
-            <TodoList todos={todos} toggleTodo={toggleTodo} />
-          </Box>
-          <TextField
-            inputRef={todoNameRef}
-            label="タスクを入力"
-            variant="outlined"
-            fullWidth
-            style={{ marginBottom: "10px" }}
-          />
-          <Box>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleAddTodo}
-              style={{ marginRight: "80%", marginTop: "5%" }}
-            >
-              タスクを追加する
-            </Button>
-            <Button
-              variant="outlined"
-              color="secondary"
-              onClick={handleClear}
-              style={{ marginRight: "15%" }}
-            >
-              完了したタスクを削除する
-            </Button>
-            <Button variant="contained" color="success" onClick={handleExport}>
-              未完了タスクをExcelにエクスポート
-            </Button>
-          </Box>
-          <Typography variant="body1" marginTop={1}>
-            未完了のタスク: {todos.filter((todo) => !todo.completed).length}
-          </Typography>
-        </Box>
-      </Container>
-    </ThemeProvider>
+    <>
+      <div className="todoContainer">
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Title />
+          <DigitalDateTime />
+          <Container
+            component={Paper}
+            style={{ padding: "5px", marginTop: "1%" }}
+          >
+            <Box textAlign="center">
+              <Typography gutterBottom>
+                <Button
+                  variant="contained"
+                  onClick={() => setDarkMode((prevMode) => !prevMode)}
+                  style={{ marginBottom: "8px" }}
+                >
+                  {darkMode
+                    ? "ライトモードに切り替え"
+                    : "ダークモードに切り替え"}
+                </Button>
+                <br />
+                <div className="todoText">
+                  Todoリスト管理画面
+                  <br />
+                </div>
+                <div className="todoDescription">
+                  機能：サーバーレス 未完了タスクをExcelに転記可能
+                  ダークモード切替可能。
+                </div>
+                <TaskAltTwoToneIcon sx={{ fontSize: 15 }} />
+              </Typography>
+              <Box marginBottom={5}>
+                <TodoList todos={todos} toggleTodo={toggleTodo} />
+              </Box>
+              <TextField
+                inputRef={todoNameRef}
+                variant="outlined"
+                helperText="タスクを入力"
+                fullWidth
+                style={{ marginBottom: "20px" }}
+              />
+              <Box marginBottom={2}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleAddTodo}
+                  style={{
+                    marginLeft: "-20px",
+                    marginTop: "-15%",
+                    fontSize: "12px",
+                  }}
+                >
+                  タスクを追加する
+                </Button>
+
+                <Button
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleClear}
+                  style={{
+                    marginLeft: "-20%",
+                    marginTop: "10%",
+                    padding: "5px",
+                    fontSize: "10px",
+                  }}
+                >
+                  完了したタスクを削除する
+                </Button>
+                <Button
+                  variant="contained"
+                  color="success"
+                  style={{
+                    marginRight: "50px",
+                    marginTop: "30%",
+                    fontSize: "8px",
+                  }}
+                  onClick={handleExport}
+                >
+                  未完了タスクを<br/>
+                  Excelにエクスポート
+                </Button>
+              </Box>
+              <Typography variant="body2" marginTop={1}>
+                未完了のタスク: {todos.filter((todo) => !todo.completed).length}
+              </Typography>
+            </Box>
+          </Container>
+        </ThemeProvider>
+      </div>
+    </>
   );
 }
 

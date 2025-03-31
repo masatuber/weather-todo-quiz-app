@@ -1,11 +1,12 @@
 /* バーガーメニューのボタン */
 .bm-burger-button {
     position: fixed;
-    width: 25px;
-    height: 25px;
-    right: 1%;
+    width: 28px;
+    height: 28px;
+    right: 3%;
     /* 右にしたい場合はright,左にしたい場合はleft */
-    top: 1%;    
+    top: 2%;
+    
 }
 
 /* バーガーメニューのボタンの線 */
@@ -21,9 +22,9 @@
 
 /* 閉じるボタン(Xの周辺） */
 .bm-cross-button {
-    height: 10px;
-    width: 10px;
-    
+    height: 500px;
+    width: 500px;
+    background-color: #04f6d6;
 }
 
 /* 閉じるボタンのX */
@@ -34,16 +35,16 @@
 /*バーガーメニューのwrapper*/
 .bm-menu-wrap {
     position: relative;
-        top: 0%;
-        left: 0%;
-
+        top: 2px;
+        left: 5px;
+    background-color: #04f6ee;
 }
 
 /* バーガーメニューのwrapper */
 .bm-menu {
-    background: #626881;
-    font-size: 1em;
-    padding:  2.5em  1.5em 1.5;
+    background: #676075;
+    font-size: 15px;
+    padding:  2em  1.5em 1.5;
     
 }
 
@@ -56,12 +57,13 @@
 .bm-item-list {
     color: #d3d363;
     padding: 0.9em;
+    width: 290px;
 }
 
 /* アイテム */
 .bm-item {
     display: inline-block;
-    height: 25px;
+    height: 24px;
 }
 
 .bm-item-list a {
@@ -82,10 +84,15 @@
 
 /* Styling of overlay */
 .bm-overlay {
-    background: rgb(252, 252, 252);
+    background: rgb(189, 10, 144);
 }
 
-#App {
-    font-family: Arial, sans-serif;
-    
+@media only screen and (max-width: 414px) {
+    .bm-menu {
+        font-size: 10px !important;
+        width: 190px !important;
+    }
+        .bm-menu-wrap {
+            width: 195px !important;
+        }
 }

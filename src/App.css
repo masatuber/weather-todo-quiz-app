@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
-html {
-    font-size: 65%;
-}
+
 
 /* Title.js */
 h1 {
@@ -16,8 +14,8 @@ h1 {
 
 /* App.js */
 .wrapper {
-    width: 100%;
-    height: 100%;
+    /* margin-right: 10px; */
+    /* margin-left: 10px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,42 +27,58 @@ h1 {
     background-size: cover;
     background-position: initial;
     height: 100vh;
-    width: 100%;
-}
-.container {
-    width: 80%;
-    height: 100%;
+    width: 200vh;
     text-align: center;
-    /* padding: 5px 5px; */
+    display: flex;
     border-radius: 15px;
     box-shadow: 4px 4px 13px 5px rgba(136, 134, 134, 0.25);
     margin: 0px;
     transition: all 0.5s ease;
 }
-/* メディアクエリでスマホ対応CSS */
-@media only screen and (max-width: 1000px) {
-    .container {
-        width: min(95vw, 95vh * 0.75);
-            /* 横幅の計算 */
-        height: min(95vh, 95vw / 0.75);
-            /* 縦幅の計算 */
-        padding: 15px 10px;
-        border-radius: 10px;
-        margin: 5px auto;
-        box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.2);
-    }
+/* .container {
+
+} */
+
+.menuContainer {
+    font-size: 16px;
 }
 
-@media only screen and (max-width: 500px) {
+/* メディアクエリでスマホ対応CSS */
+@media only screen and (max-width: 414px) {
     .container {
-        width: min(95vw, 95vh * 0.75);
-            /* 横幅の計算 */
-        height: min(95vh, 95vw / 0.75);
-            /* 縦幅の計算 */
         padding: 5px 5px;
-        font-size: 1.5rem;
+        font-size: 8px !important;
         margin: 5px auto;
     }
+        .homeBody {
+            font-size: 8px !important;
+        }
+            .button1 {
+                font-size: 8px !important;
+            }
+                .password-background {
+                    width: 410px !important;
+                    height: 580px !important;
+                    font-size: 10px !important;
+                }
+                    .menuContainer {
+                        font-size: 8px !important;
+                        width: 10px !important;
+                    }
+                        h1 {
+                            font-size: 15px !important;
+                        }
+                            p {
+                                font-size: 8px !important;
+                            }
+                                .calendarTitle {
+                                    font-size: 8px !important;
+                                    /* display: flex !important; */
+                                }
+                                    .calendarCss {
+                                        width: 0px !important;
+                                        height: 0px !important;
+                                    }
 }
 
 /* Title.js */
@@ -100,9 +114,9 @@ input[type="text"] {
     cursor: pointer;
     color: #fff;
     position: absolute;
-    width: 20%;
+    width: 18%;
     background-color: #ff0000;
-    left: 68%;
+    left: 70%;
 
 }
 /* 天気検索ボタンCSS */
@@ -112,9 +126,6 @@ input[type="text"] {
         opacity: 1;
 }
 
-/* *:focus {
-    outline: none;
-} */
 
 /* Results.js */
 .results-city {
@@ -185,17 +196,14 @@ input[type="text"] {
     font-family: 'Noto Sans JP'
 }
 
-body {
+.homeBody {
     height: 100%;
-    min-width: 100px;
-    max-width: 1920px;
+    width: 100%;
     font-family: 'Raleway', 'Noto Sans JP', sans-serif;
     font-weight: 400;
-    font-size: 1.6rem;
+    font-size: 25px;
     color: #030303;
     font-display: auto;
-    margin: 0 auto;
-    padding: 0;    
 }
 
 .App {
@@ -217,29 +225,16 @@ body {
 }
 
 .todoList {
-    width: 100%;
-    height: 100%;
+    width: 100vh;
+    height: 100vh;
+    text-align: center;
     /* background-color: #13a109; */
     margin: 0px;
     padding: 0px;
-
+    font-size: 15px;
 
 }
 
-/* タスク管理用ボタンCSS */
-.btnTodo{
-    background-color: #baedec;
-    width: 20%;
-}
-/* Excelエクスポートボタン用CSS */
-.btnTodoExcel {
-    position: absolute;
-    background-color: #13a109;
-    background-repeat: repeat;
-    width: 16%;
-    left: 20%;
-    top: 68%;
-}
 
 /* 遅延ページでローディングを表示させるCSS */
 .pgLoading {
@@ -260,10 +255,11 @@ body {
         background: url("./background-image2.jpg");
         background-size: cover;
         justify-content: center;
-        height: 200vh;
-        width: 180vh;
+        height: 160vh;
+        width: 160vh;
         background-position: initial;
-        font-size: 15px;       
+        text-align: center;
+        font-size: 15px;
         font-weight: 30%;
         /* 下は状況に応じて変更する */
         /* background-color: rgba(181, 159, 183, 0.338);
@@ -288,4 +284,21 @@ body {
 /* カレンダーのタイトルフォントサイズ */
 .calendarTitle {
     font-size: 20px;
+    text-align: center;
+}
+
+.backgroundCalendar {
+    width: 50%;
+    height: 50%;
+    position: relative;
+}
+
+.pythonDlPage {
+    display: flex;
+    flex-direction: column;
+}
+
+.inquiryPage {
+    display: flex;
+    flex-direction: column;
 }
