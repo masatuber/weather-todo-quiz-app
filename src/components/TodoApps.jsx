@@ -1,8 +1,8 @@
 //TodoApps.js
-import './todoApps.css';
+import './todoApps.css'; //タスク管理CSS
 import TodoList from "./TodoList"; //コンポーネント
-import Title from "./Title";
-import DigitalDateTime from './DigitalDateTime';
+import Title from "./Title"; //コンポーネント
+import DigitalDateTime from './DigitalDateTime'; //コンポーネント
 import { useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import * as XLSX from "xlsx"; // xlsxライブラリ
@@ -30,11 +30,11 @@ function TodoApps() {
     palette: {
       mode: darkMode ? "dark" : "light",
       background: {
-        default: darkMode ? "#121212" : "#ffffff", // 背景色の設定
-        paper: darkMode ? "#1d1d1d" : "#ffffff", // Paperコンポーネントの背景色
+        default: darkMode ? "#333333" : "#ffffff", // 背景色の設定
+        paper: darkMode ? "#333333" : "#f5f5f5", // Paperコンポーネントの背景色
       },
       text: {
-        primary: darkMode ? "#ffffff" : "#000000", // テキストの色
+        primary: darkMode ? "#ffffff" : "#292929", // テキストの色
       },
     },
   });
@@ -87,7 +87,7 @@ function TodoApps() {
           <DigitalDateTime />
           <Container
             component={Paper}
-            style={{ padding: "5px", marginTop: "1%" }}
+            style={{ padding: "0px", marginTop: "1%", marginLeft: "1%", width: "100%" }}
           >
             <Box textAlign="center">
               <Typography gutterBottom>

@@ -69,21 +69,21 @@ td:hover {
     margin-right: 10px;
 }
 
-
+/* メディアクエリCSS */
 @media only screen and (max-width: 414px) {
         th,
         td {
-            font-size: 10px !important;
+            font-size: 10.5px !important;
         }
             .textDescription {
-                font-size: 8px !important;
-                margin-right: 10px !important;
+                font-size: 9.5px !important;
+                margin-right: 20px !important;
             }
                 table {
-                    width: 200px !important;
-                    height: 50px !important;
+                    width: 300px !important;
+                    height: 80px !important;
                 }
                     .CalendarBody {
-                        width: 200px !important;
+                        width: 300px !important;
                     }
 }

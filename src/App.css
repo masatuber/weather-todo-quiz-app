@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
-
-
-/* Title.js */
+/* Title.js 全体のh1*/
 h1 {
     font-weight: 70;
     font-size: 2em;
@@ -14,8 +12,6 @@ h1 {
 
 /* App.js */
 .wrapper {
-    /* margin-right: 10px; */
-    /* margin-left: 10px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,50 +31,10 @@ h1 {
     margin: 0px;
     transition: all 0.5s ease;
 }
-/* .container {
 
-} */
-
+/* ハンバーガーメニュー文字サイズ */
 .menuContainer {
     font-size: 16px;
-}
-
-/* メディアクエリでスマホ対応CSS */
-@media only screen and (max-width: 414px) {
-    .container {
-        padding: 5px 5px;
-        font-size: 8px !important;
-        margin: 5px auto;
-    }
-        .homeBody {
-            font-size: 8px !important;
-        }
-            .button1 {
-                font-size: 8px !important;
-            }
-                .password-background {
-                    width: 410px !important;
-                    height: 580px !important;
-                    font-size: 10px !important;
-                }
-                    .menuContainer {
-                        font-size: 8px !important;
-                        width: 10px !important;
-                    }
-                        h1 {
-                            font-size: 15px !important;
-                        }
-                            p {
-                                font-size: 8px !important;
-                            }
-                                .calendarTitle {
-                                    font-size: 8px !important;
-                                    /* display: flex !important; */
-                                }
-                                    .calendarCss {
-                                        width: 0px !important;
-                                        height: 0px !important;
-                                    }
 }
 
 /* Title.js */
@@ -89,12 +45,13 @@ h1 {
     margin: 0px 0 10px;
 }
 
+/* 全体のh2 */
 h2 {
     margin: 10px 0 10px;
     font-size: 15px;
 }
 
-/* Form.js　inputタグにCSS適用でダークモードに影響でるため文字色削除  */
+/* Form.js inputタグにCSS適用でダークモードに影響でるため文字色削除  */
 input[type="text"] {
     background-color: transparent;
     border: 0;
@@ -107,6 +64,7 @@ input[type="text"] {
     margin-right: 20px;
     font-size: 20px;
 }
+
 /* 検索ボタン用CSS */
 .button1 {    
     border-bottom: 5px solid #812002;
@@ -119,6 +77,7 @@ input[type="text"] {
     left: 70%;
 
 }
+
 /* 天気検索ボタンCSS */
 .button1:hover {
         margin-top: 15px;
@@ -126,17 +85,18 @@ input[type="text"] {
         opacity: 1;
 }
 
-
 /* Results.js */
 .results-city {
     font-size: 2rem;
     color: #bd1414;
 }
+
 /* Results.js */
 .results-country {
     font-size: 2rem;
     color: #bd1414;
 }
+
 /* Results.js */
 .results-temp {
     font-size: 2rem;
@@ -145,12 +105,14 @@ input[type="text"] {
     position: relative;
     
 }
+
 /* Results.js */
 .results-temp > span {
     font-size: 1.5rem;
     color: #b70e0e;
 }
-/* Results.js 　アニメーション追加*/
+
+/* Results.js アニメーション追加*/
 .results-condition {
     position: absolute;
     top: 79%;
@@ -164,10 +126,12 @@ input[type="text"] {
     transition: all 0.8s;
     border-radius: 2px;
 }
+
 /* Results.js */
 .results-condition:hover{
     box-shadow: 0 16px 20px -8px rgba(108, 74, 74, 0.4);
 }
+
 /* Loading.js */
 .loading {
     border: 4px solid #f15186;
@@ -193,7 +157,8 @@ input[type="text"] {
 .dit {
     height: 20px;
     font-size: 20px;
-    font-family: 'Noto Sans JP'
+    font-family: 'Noto Sans JP';
+    text-align: center;
 }
 
 .homeBody {
@@ -211,45 +176,41 @@ input[type="text"] {
     border: 0;
     padding: 0px 0px;
     margin: 0px;
-    /* border-radius: 2px; */
-    /* letter-spacing: 1px; */
     font-size: 1rem;
     cursor: pointer;
     background-color: #d451f1;
     color: #e9a915fd;
     
 }
-/* リアルタイム表示のCSS */
-.dit {
-    text-align: center;
-}
 
+/* タスク管理画面用CSS */
 .todoList {
     width: 100vh;
     height: 100vh;
     text-align: center;
-    /* background-color: #13a109; */
     margin: 0px;
     padding: 0px;
     font-size: 15px;
 
 }
 
-
 /* 遅延ページでローディングを表示させるCSS */
 .pgLoading {
     font-size: 50px;
     color: #f40a0afd;
 }
-/* マテリアルアイコンのCSS */
+
+/* マテリアルアイコンリロードのCSS */
 .reload {
     cursor: pointer;
     color: #f4480afd;
 }
+
 /* マテリアルアイコンのマウスホバー */
 .reload:hover {
     background-color: #701919;
 }
+
 /* パスワード生成CSS、フォントバックグラウンド#e3bfbf; */
 .password-background {
         background: url("./background-image2.jpg");
@@ -261,11 +222,8 @@ input[type="text"] {
         text-align: center;
         font-size: 15px;
         font-weight: 30%;
-        /* 下は状況に応じて変更する */
-        /* background-color: rgba(181, 159, 183, 0.338);
-        background-blend-mode: lighten; */
-        
 }
+
 /* パスワード表示の枠線 */
 .pwMain {
     margin: 0 auto;
@@ -277,10 +235,12 @@ input[type="text"] {
     /*線の種類・太さ・色*/
     background-color:#e6ffff;
 }
+
 /* パスワード生成ボタン */
 .passwordButton:hover {
     cursor: pointer;
 }
+
 /* カレンダーのタイトルフォントサイズ */
 .calendarTitle {
     font-size: 20px;
@@ -293,12 +253,65 @@ input[type="text"] {
     position: relative;
 }
 
+/* Python自動化スクリプトDLPage */
 .pythonDlPage {
     display: flex;
     flex-direction: column;
 }
 
+/* お問合せPage */
 .inquiryPage {
     display: flex;
     flex-direction: column;
+}
+
+/* メディアクエリでスマホ対応CSS */
+@media only screen and (max-width: 414px) {
+    .container {
+        padding: 2px 2px;
+        font-size: 9.5px !important;
+        margin: 2px auto;
+    }
+
+    .homeBody {
+        font-size: 9.5px !important;
+    }
+
+    .button1 {
+        font-size: 9.5px !important;
+    }
+
+    .password-background {
+        width: 410px !important;
+        height: 580px !important;
+        font-size: 10.5px !important;
+    }
+
+    .menuContainer {
+        font-size: 9.5px !important;
+        width: 10px !important;
+    }
+
+    h1 {
+        font-size: 15px !important;
+    }
+
+    p {
+        font-size: 9.5px !important;
+    }
+
+    .calendarTitle {
+        font-size: 10px !important;
+    }
+
+    .calendarCss {
+        width: 0px !important;
+        height: 0px !important;
+    }
+
+        .backgroundCalendar {
+            width: 75%;
+            height: 50%;
+            position: relative;
+        }
 }

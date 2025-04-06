@@ -87,6 +87,7 @@
     background: rgb(189, 10, 144);
 }
 
+/* メディアクエリCSS */
 @media only screen and (max-width: 414px) {
     .bm-menu {
         font-size: 10px !important;

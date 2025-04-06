@@ -1,17 +1,18 @@
+import './App.css'; //アプリ全体のCSS
+import './HamburgerMenu.css'; //ハンバーガーメニュー用CSS
+import Title from "./components/Title";
+import Results from "./components/Results";
+import Form from "./components/Form";
+import Loading from "./components/Loading";
+import Home from "./components/home";  //Homeは遅延レンダリングさせないので通常インポート
+import DigitalDateTime from "./components/DigitalDateTime";
+//ここまでがコンポーネントインポート
 import { useState, Suspense, lazy } from "react"; //ページ単位でロードするように設定
 import { Routes, Route, Link,  } from "react-router-dom"; //BrowserRouterをindex.jsに移動しコード改善
 import axios from "axios";
 import { bubble as Menu } from "react-burger-menu"; //ハンバーガーメニューライブラリ使用
 import HomeIcon from '@mui/icons-material/Home';  //Homeアイコン導入
 import AutorenewIcon from '@mui/icons-material/Autorenew';  //リロードアイコン導入
-import './App.css';
-import './HamburgerMenu.css'; //ハンバーガーメニュー用CSS
-import Title from "./components/Title";
-import Loading from "./components/Loading";
-import Results from "./components/Results";
-import Form from "./components/Form";
-import Home from "./components/home";  //Homeは遅延レンダリングさせないので通常インポート
-import DigitalDateTime from "./components/DigitalDateTime";
 
 // 動的インポート
 const NotFound = lazy(() => import('./components/not_found'));
@@ -21,12 +22,13 @@ const CalendarApp = lazy(() => import('./components/CalendarApp'));
 const PasswordGenerator = lazy(() => import('./components/PasswordGenerator'));
 const PythonDlPage = lazy(() => import('./components/PythonDlPage'));
 //↑にページが増えるごとに動的インポート追加するfunction App( )に含めないこと。
+
 function App( ) {
   //APIキー定義
 const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
 
 //天気の状態管理
-  const[city, setCity] = useState("");
+  const [city, setCity] = useState("");
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState({
     country: "",
@@ -39,6 +41,7 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
 //APIと連動させる処理
   const getWeather = (e) => {
     e.preventDefault();
+    //検索中の状態
     setLoading(true);
     axios
       .get(
@@ -53,6 +56,7 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
           icon: res.data.current.condition.icon,
         });
         setCity("");
+        //ローディング中
         setLoading(false);
       })
       .catch(() =>
@@ -61,22 +65,25 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
         )
       );
   }
+
   //リンクで切替わるため、アラート表示でユーザーに知らせる、動的にメッセージが表示される関数定義 error
   const showAlert = (message) => {
     alert(message);
   };
+
   //天気ページに国一覧検索サイトボタンがあるため、外部サイトリンクを開くアラートを知らせる
   const buttonAlert2 = () => alert("外部サイトが開きました。\n世界国別一覧が調べる事が出来ます。");
+
   //マテリアルアイコンのリロードイベント（ページリロード） functionで定義
   function reloadPage() {
   window.location.reload();
 };
+
 //コンポーネント配置
   return (
     <>
       {/* 遅延用ラップSuspense*/}
       <Suspense fallback={<div className="pgLoading">Loading.......</div>}>
-        {/* <div id="App"> */}
         <div className="container">
           <div className="wrapper">
             {/* ハンバーガーメニュー 配置用*/}
@@ -176,12 +183,10 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                   開発者にお問合せページはこちら
                 </Link>
               </Menu>
-              {/* </div> */}
               {/* タイトルよりも上に配置する タイトル、時計は常にレンダーする */}
-              {/* ルーティング 用*/}
               {/*フラグメントで複数のコーポメントreturnさせる*/}
             </div>
-            {/* <main> */}
+              {/* ルーティング 用*/}
             <Routes>
               <Route
                 index
@@ -221,10 +226,11 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                       </div>
                     </>
                   </div>
-
                   // ↑className="home-backgroundの終了タグ
-                }
+                }                
               />
+              
+              {/* タスク管理を描画 */}
               <Route
                 path="/TodoApps"
                 element={
@@ -235,6 +241,8 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                   </>
                 }
               />
+
+              {/* カレンダーを描画 */}
               <Route
                 path="/Calendar"
                 element={
@@ -247,6 +255,8 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                   </>
                 }
               />
+
+              {/* お問合せを描画 */}
               <Route
                 path="/Inquiry"
                 element={
@@ -263,6 +273,8 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                   </>
                 }
               />
+
+              {/* パスワード生成を描画 */}
               <Route
                 path="/PasswordGenerator"
                 element={
@@ -274,6 +286,8 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                   </div>
                 }
               />
+
+              {/* Pythonダウンロード描画 */}
               <Route
                 path="/PythonDlPage"
                 element={
@@ -290,9 +304,10 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                   </>
                 }
               />
+
+              {/* パスのルートない時のページ描画 */}
               <Route path="*" element={<NotFound />} />
             </Routes>
-            {/* </main> */}
           </div>
         </div>
       </Suspense>

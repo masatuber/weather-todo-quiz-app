@@ -1,12 +1,12 @@
 //CalendarApp.js
 import "../Calendar.css";
+import DigitalDateTime from "./DigitalDateTime";
 import  { useState, useEffect } from "react";
 import Modal from "react-modal";
 import localforage from "localforage";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import { Container, createTheme, CssBaseline, Paper, ThemeProvider } from "@mui/material";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
-import DigitalDateTime from "./DigitalDateTime";
 
 
 Modal.setAppElement("#root");
@@ -22,11 +22,11 @@ const CalendarApp = () => {
     palette: {
       mode: darkMode ? "dark" : "light",
       background: {
-        default: darkMode ? "#201e1e" : "#ffffff", // 背景色の設定
-        paper: darkMode ? "#201e1e" : "#f5f5f5", // Paperコンポーネントの背景色
+        default: darkMode ? "#333333" : "#ffffff", // 背景色の設定
+        paper: darkMode ? "#333333" : "#f5f5f5", // Paperコンポーネントの背景色
       },
       text: {
-        primary: darkMode ? "#ffffff" : "#000000", // テキストの色
+        primary: darkMode ? "#ffffff" : "#292929", // テキストの色
       },
     },
   });
@@ -117,17 +117,17 @@ const CalendarApp = () => {
   };
 
   return (
+    <div id="calendar">
+      <div className="CalendarBody">
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container
         component={Paper}
         elevation={1}
-        style={{ minHeight: "100vh", maxWidth: "100vh" }}
+        style={{ minHeight: "100vh", maxWidth: "200vh", padding: "2px" }}
       >
         イベント追加が出来るカレンダー(ダークモード対応)
         <DigitalDateTime />
-        <div id="calendar">
-          <div className="CalendarBody">
             <div className="cld">
               <DarkModeIcon
                 onClick={() => setDarkMode((prevMode) => !prevMode)}
@@ -158,25 +158,25 @@ const CalendarApp = () => {
               <br />
               （ローカルストレージに保存されます）
             </span>
-          </div>
 
           <Modal
             isOpen={isModalOpen}
             onRequestClose={closeModal}
             className="modal"
-          >
+            >
             <h2>{selectedDate}のイベントを登録</h2>
             <textarea
               value={eventText}
               onChange={(e) => setEventText(e.target.value)}
               placeholder="イベント内容を入力"
-            />
+              />
             <button onClick={saveEvent}>保存</button>
             <button onClick={closeModal}>キャンセル</button>
           </Modal>
-        </div>
       </Container>
     </ThemeProvider>
+        </div>
+    </div>
   );
 };
 
