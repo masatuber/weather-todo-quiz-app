@@ -1,8 +1,8 @@
 //TodoApps.js
 import './todoApps.css'; //タスク管理CSS
 import TodoList from "./TodoList"; //コンポーネント
-import Title from "./Title"; //コンポーネント
-import DigitalDateTime from './DigitalDateTime'; //コンポーネント
+import Title from "../weather/Title"; //コンポーネント
+import DigitalDateTime from '../DigitalDateTime'; //コンポーネント
 import { useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import * as XLSX from "xlsx"; // xlsxライブラリ

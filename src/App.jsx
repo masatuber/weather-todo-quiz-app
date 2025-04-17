@@ -1,11 +1,12 @@
 import './App.css'; //アプリ全体のCSS
 import './HamburgerMenu.css'; //ハンバーガーメニュー用CSS
-import Title from "./components/Title";
-import Results from "./components/Results";
-import Form from "./components/Form";
-import Loading from "./components/Loading";
-import Home from "./components/home";  //Homeは遅延レンダリングさせないので通常インポート
+import Title from "./components/weather/Title";
+import Results from "./components/weather/Results";
+import Form from "./components/weather/Form";
+import Loading from "./components/weather/Loading";
+import Home from "./components/weather/home";  //Homeは遅延レンダリングさせないので通常インポート
 import DigitalDateTime from "./components/DigitalDateTime";
+import VisitorCounter from './components/counter/VisitorCounter';
 //ここまでがコンポーネントインポート
 import { useState, Suspense, lazy } from "react"; //ページ単位でロードするように設定
 import { Routes, Route, Link,  } from "react-router-dom"; //BrowserRouterをindex.jsに移動しコード改善
@@ -16,7 +17,7 @@ import AutorenewIcon from '@mui/icons-material/Autorenew';  //リロードアイ
 
 // 動的インポート
 const NotFound = lazy(() => import('./components/not_found'));
-const TodoApps = lazy(() => import('./components/TodoApps'));
+const TodoApps = lazy(() => import('./components/todo/TodoApps'));
 const Inquiry = lazy(() => import('./components/Inquiry'));
 const CalendarApp = lazy(() => import('./components/CalendarApp'));
 const PasswordGenerator = lazy(() => import('./components/PasswordGenerator'));
@@ -203,6 +204,7 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                           </font>
                         </div>
                         <Home />
+                        <VisitorCounter />
                         <Link
                           onClick={buttonAlert2}
                           to="https://www.asahi-net.or.jp/~yq3t-hruc/flag_J_ALL.html"

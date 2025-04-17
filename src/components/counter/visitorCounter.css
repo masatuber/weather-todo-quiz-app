@@ -1,0 +1,10 @@
+.counterText {
+  font-size: 15px;
+}
+
+/* メディアクエリでスマホ対応CSS */
+@media only screen and (max-width: 414px) {
+  .counterText {
+    font-size: 10.5px !important;
+  }
+}
