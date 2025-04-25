@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -21,7 +24,7 @@
     "react-burger-menu": "^3.1.0",
     "react-dom": "^18.3.1",
     "react-modal": "^3.16.3",
-    "react-router-dom": "^7.1.1",
+    "react-router-dom": "^7.5.2",
     "uuid": "^11.0.4",
     "xlsx": "^0.18.5"
   },
