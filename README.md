@@ -2,10 +2,10 @@
 
 # 天気マルチアプリ React の URL は下記です。
 <br>
-https://masatuber-weather-app3.netlify.app/
+  https://masatuber-weather-app3.netlify.app/
 <br> 
 
-# Web アプリの主力機能
+# 【Web アプリの主力機能】
  天気検索、タスク管理、カレンダー、パスワード生成、ジェミニカスタム App を web 機能として開発
  <br>
 表示速度改善目的で netlify.toml を導入しました。
@@ -17,11 +17,11 @@ https://masatuber-weather-app3.netlify.app/
 
 # 【目的】
 <br>
-天気マルチアプリは一度開発したら終了ではなく、フィードバックや自分が使う時に不便がないように育てる方針で作成しました。
-<br> 
+天気マルチアプリは一度開発したら終了ではなく、フィードバックや自分が使う時に不便がないように育てる方針で作成しました。<br> 
 
-# 将来追加機能
+# 【将来追加機能】
 <br>
+
 近年 DX 化が課題として上がるようになった背景で、Python 自動化プログラムを無償で提供し続けること、私自身パスワード生成する時に第三者提供のアプリではなく、自分で管理をしたいと思いました。<br>
 天気検索については、日本の天気を検索出来るように機能を追加予定です。<br>
 Python 自動化プログラムを exe ファイルに変換しダウンロード共有が可能です。ファーストビューの表示速度改善しました。<br>
@@ -31,8 +31,8 @@ Python 自動化プログラムを exe ファイルに変換しダウンロー�
 # 【ジェミニカスタム App の目的】
 <br>
 
-* ・ジェミニカスタム App のソースコード<br>
-https://github.com/masatuber/gemini-bot.git<br>
+* ジェミニカスタム App のソースコード<br>
+  https://github.com/masatuber/gemini-bot.git<br>
 UI、ダークモード切替、生成された回答のコピーのし易さ、ログインなしで手軽に使用出来ると思い作成しました。<br>
 
 # 【音楽ながら SNS の目的】
@@ -40,21 +40,21 @@ UI、ダークモード切替、生成された回答のコピーのし易さ、
 自作の SNS を構築した段階では news API を使用し常に情報収集が可能で、news について語って欲しいと思いました。<br>
 しかしながら、news API は無料では本番環境に移行出来ずにいました。<br>
 
-* ・音楽ながら SNS のソースコードフロントエンド側<br>
-https://github.com/masatuber/my-sns-front-end.git<br>
+* 音楽ながら SNS のソースコードフロントエンド側<br>
+  https://github.com/masatuber/my-sns-front-end.git<br>
 
-* ・音楽ながら SNS のソースコードバックエンド側<br>
-https://github.com/masatuber/my-sns-backend.git<br> 
+* 音楽ながら SNS のソースコードバックエンド側<br>
+  https://github.com/masatuber/my-sns-backend.git<br> 
 ##　【将来追加予定機能】<br>
 Spotify の API では無料枠でも使用出来ると調査で判明したので今後は実装したいと思います。<br>
 ユーザーが好きな音楽の歌詞や曲名を検索しながら、ポストできると面白い試みだと感じています。<br>
 （音楽ながら SNS の苦労した点）バックエンド側とフロントエンドを繋げる時に、バックエンド側から undefined が帰ってきて、ポストマンで確認した時と相違があり苦労しました。<br> ##　【Python 自動化スクリプト配布の目的】<br>
 
-* ・Python 自動化スクリプト Web API のソースコード<br>
-https://github.com/masatuber/node-exe-api.git<br>
+* Python 自動化スクリプト Web API のソースコード<br>
+  https://github.com/masatuber/node-exe-api.git<br>
 
-* ・Python 自動化スクリプトのソースコード<br>
-https://github.com/masatuber/PythonAutoExcel.git<br>
+* Python 自動化スクリプトのソースコード<br>
+  https://github.com/masatuber/PythonAutoExcel.git<br>
 Web アプリを通して DX を推進する目的があります。
 
 # 【プログラミング言語選定理由】
@@ -82,10 +82,9 @@ app3-vite
 <br>
 
 # セットアップ手順やライブラリインストールをまとめます
-
 <br>
 
-* ・任意のフォルダにて下記コマンドを使用する。
+* 任意のフォルダにて下記コマンドを使用する。
 <br>
 npm create vite@latest<br>
 npm install<br>
