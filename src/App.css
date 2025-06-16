@@ -19,7 +19,7 @@ h1 {
 }
 
 .home-background {
-    background: url("./background-image.jpg");
+    background: url("./public/background-image.jpg");
     background-size: cover;
     background-position: initial;
     height: 100vh;
@@ -112,22 +112,18 @@ input[type="text"] {
     color: #b70e0e;
 }
 
-/* Results.js アニメーション追加*/
+/* Results.js アニメーション追加 CSSのスマホで崩れを修正する*/
 .results-condition {
-    position: absolute;
-    top: 79%;
-    left: 40%;
-    transform: translate(-50%, -50%);
-    margin: 0;
+    position: static;
     display: block;
     font-size: 2rem;
     cursor: pointer;
     -webkit-transition: all 0.8s;
     transition: all 0.8s;
-    border-radius: 2px;
+    border-radius: 2px; 
 }
 
-/* Results.js */
+/* Results.js  */
 .results-condition:hover{
     box-shadow: 0 16px 20px -8px rgba(108, 74, 74, 0.4);
 }
@@ -213,7 +209,7 @@ input[type="text"] {
 
 /* パスワード生成CSS、フォントバックグラウンド#e3bfbf; */
 .password-background {
-        background: url("./background-image2.jpg");
+        background: url("./public/background-image2.jpg");
         background-size: cover;
         justify-content: center;
         height: 160vh;

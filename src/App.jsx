@@ -92,7 +92,6 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
               <Menu>
                 <Link
                   className="menu-item"
-                  onClick={() => showAlert("World Weatherアプリが開きました。")}
                   to="/"
                 >
                   World Weather アプリ
@@ -111,34 +110,24 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                 {/* chat bot API追加 */}
                 <Link
                   className="menu-item"
-                  onClick={() => showAlert("ReactTodoアプリが開きました。")}
                   to="/TodoApps"
                 >
                   ReactTodoアプリを開く
                 </Link>
                 <Link
                   className="menu-item"
-                  onClick={() =>
-                    showAlert("簡易カレンダーアプリが開きました。")
-                  }
                   to="/Calendar"
                 >
                   簡易カレンダーアプリを開く
                 </Link>
                 <Link
                   className="menu-item"
-                  onClick={() =>
-                    showAlert("パスワード生成アプリが開きました。")
-                  }
                   to="/PasswordGenerator"
                 >
                   パスワード生成アプリを開く
                 </Link>
                 <Link
                   className="menu-item"
-                  onClick={() =>
-                    showAlert("Python exeダウンロードページ開きました。")
-                  }
                   to="/PythonDlPage"
                 >
                   Python exeダウンロードページ
@@ -178,7 +167,6 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                 </Link>
                 <Link
                   className="menu-item"
-                  onClick={() => showAlert("お問合せページが開きました。")}
                   to="/Inquiry"
                 >
                   開発者にお問合せページはこちら
