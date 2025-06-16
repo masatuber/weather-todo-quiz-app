@@ -19,7 +19,7 @@ h1 {
 }
 
 .home-background {
-    background: url("./public/background-image.jpg");
+    background: url("/public/background-image.jpg");
     background-size: cover;
     background-position: initial;
     height: 100vh;
@@ -209,7 +209,7 @@ input[type="text"] {
 
 /* パスワード生成CSS、フォントバックグラウンド#e3bfbf; */
 .password-background {
-        background: url("./public/background-image2.jpg");
+        background: url("/public/background-image2.jpg");
         background-size: cover;
         justify-content: center;
         height: 160vh;

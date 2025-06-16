@@ -9,4 +9,8 @@ export default defineConfig({
     environment: "happy-dom",
     setupFiles: ["./vitest-setup.jsx"],
   },
+//ビルドオプション
+  build: {
+    minify: "terser"
+  },
 } )

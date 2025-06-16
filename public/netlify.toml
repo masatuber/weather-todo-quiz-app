@@ -1,16 +1,16 @@
-# JSやCSSファイルを1年間キャッシュ
+# 
 [[headers]]
   for = "/*.js"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "no-cache, must-revalidate"
 
 [[headers]]
   for = "/*.css"
   [headers.values]
-    Cache-Control = "public, max-age=86400, immutable"
+    Cache-Control = "no-cache, must-revalidate"
 
-# HTMLは毎回取り直して最新表示
+# 
 [[headers]]
   for = "/*.css"
   [headers.values]
-    Cache-Control = "no-cache"
+    Cache-Control = "no-cache, must-revalidate"
