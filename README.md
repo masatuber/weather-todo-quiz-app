@@ -1,9 +1,7 @@
 ## React + Vite
-##天気マルチアプリReactのURLは下記です。
-
-<br>
-
-    https://masatuber-weather-app3.netlify.app/<br>
+##天気マルチアプリReactのURLは下記です。<br>
+https://masatuber-weather-app3.netlify.app/
+    <br>
 ##　【Webアプリの主力機能】天気検索、タスク管理、カレンダー、パスワード生成、ジェミニカスタムAppをweb機能として開発<br>
   表示速度改善目的でnetlify.tomlを導入しました。<br>
 
