@@ -14,6 +14,7 @@ import axios from "axios";
 import { bubble as Menu } from "react-burger-menu"; //ハンバーガーメニューライブラリ使用
 import HomeIcon from '@mui/icons-material/Home';  //Homeアイコン導入
 import AutorenewIcon from '@mui/icons-material/Autorenew';  //リロードアイコン導入
+import ShareButtonList from './components/counter/shareSns/ShareButtonList';
 
 // 動的インポート
 const NotFound = lazy(() => import('./components/not_found'));
@@ -90,10 +91,7 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
             {/* ハンバーガーメニュー 配置用*/}
             <div className="menuContainer">
               <Menu>
-                <Link
-                  className="menu-item"
-                  to="/"
-                >
+                <Link className="menu-item" to="/">
                   World Weather アプリ
                 </Link>
                 <Link
@@ -108,28 +106,16 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                   ジェミニカスタムAppはこちら
                 </Link>
                 {/* chat bot API追加 */}
-                <Link
-                  className="menu-item"
-                  to="/TodoApps"
-                >
+                <Link className="menu-item" to="/TodoApps">
                   ReactTodoアプリを開く
                 </Link>
-                <Link
-                  className="menu-item"
-                  to="/Calendar"
-                >
+                <Link className="menu-item" to="/Calendar">
                   簡易カレンダーアプリを開く
                 </Link>
-                <Link
-                  className="menu-item"
-                  to="/PasswordGenerator"
-                >
+                <Link className="menu-item" to="/PasswordGenerator">
                   パスワード生成アプリを開く
                 </Link>
-                <Link
-                  className="menu-item"
-                  to="/PythonDlPage"
-                >
+                <Link className="menu-item" to="/PythonDlPage">
                   Python exeダウンロードページ
                 </Link>
                 <Link
@@ -165,17 +151,14 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                 >
                   Youtubeチャンネルはこちら
                 </Link>
-                <Link
-                  className="menu-item"
-                  to="/Inquiry"
-                >
+                <Link className="menu-item" to="/Inquiry">
                   開発者にお問合せページはこちら
                 </Link>
               </Menu>
               {/* タイトルよりも上に配置する タイトル、時計は常にレンダーする */}
               {/*フラグメントで複数のコーポメントreturnさせる*/}
             </div>
-              {/* ルーティング 用*/}
+            {/* ルーティング 用*/}
             <Routes>
               <Route
                 index
@@ -185,6 +168,12 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                       <div className="homeBody">
                         {/* ホームForm時計結果ボタン常時表示 */}
                         <HomeIcon color="secondary" sx={{ fontSize: 35 }} />
+                        <div className="snsButton">
+                          <ShareButtonList
+                            title="このアプリはマルチアプリです"
+                            url="https://masatuber-weather-app3.netlify.app"
+                          />
+                        </div>
                         <Title />
                         <div className="dit">
                           <font color="black">
@@ -217,9 +206,9 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                     </>
                   </div>
                   // ↑className="home-backgroundの終了タグ
-                }                
+                }
               />
-              
+
               {/* タスク管理を描画 */}
               <Route
                 path="/TodoApps"

@@ -6,9 +6,9 @@
 <br> 
 
 # 【Web アプリの主力機能】
- 天気検索、タスク管理、カレンダー、パスワード生成、ジェミニカスタム App を web 機能として開発
+ 天気検索、タスク管理、カレンダー、パスワード生成、ジェミニカスタム App を web 機能として開発、SNSシェアボタン実装しました。
  <br>
-表示速度改善目的で netlify.toml を導入しました。
+  テストコード(vitest)導入しました。
 <br>
 
 # 「天気マルチアプリのこだわり点」
@@ -108,6 +108,7 @@ npm install --save randomatic<br>
 npm install localforage<br>
 npm install --save react-modal<br>
 npm install uuid<br>
+npm install react-share<br>
 
 * 開発用サーバー起動
 <br>

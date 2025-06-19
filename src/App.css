@@ -311,3 +311,8 @@ input[type="text"] {
             position: relative;
         }
 }
+
+/* SNSボタン表示 */
+.snsButton {
+    margin-left: 15px;
+}
