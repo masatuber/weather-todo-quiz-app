@@ -90,7 +90,7 @@
 /* メディアクエリCSS */
 @media only screen and (max-width: 414px) {
     .bm-menu {
-        font-size: 10px !important;
+        font-size: 12px !important;
         width: 190px !important;
     }
         .bm-menu-wrap {

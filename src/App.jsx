@@ -103,11 +103,11 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  ジェミニカスタムAppはこちら
+                  gemini custom　appを開く
                 </Link>
                 {/* chat bot API追加 */}
                 <Link className="menu-item" to="/TodoApps">
-                  ReactTodoアプリを開く
+                  タスク管理アプリを開く
                 </Link>
                 <Link className="menu-item" to="/Calendar">
                   簡易カレンダーアプリを開く
@@ -116,7 +116,7 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                   パスワード生成アプリを開く
                 </Link>
                 <Link className="menu-item" to="/PythonDlPage">
-                  Python exeダウンロードページ
+                  Python exe　DLページを開く
                 </Link>
                 <Link
                   className="menu-item"
@@ -127,7 +127,7 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  音楽ながらSNSアプリを開く
+                  音楽ながらSNSを開く
                 </Link>
                 <Link
                   className="menu-item"
@@ -152,7 +152,7 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                   Youtubeチャンネルはこちら
                 </Link>
                 <Link className="menu-item" to="/Inquiry">
-                  開発者にお問合せページはこちら
+                  開発者にお問合せはこちら
                 </Link>
               </Menu>
               {/* タイトルよりも上に配置する タイトル、時計は常にレンダーする */}
@@ -168,20 +168,20 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                       <div className="homeBody">
                         {/* ホームForm時計結果ボタン常時表示 */}
                         <HomeIcon color="secondary" sx={{ fontSize: 35 }} />
-                        <div className="snsButton">
+                        
                           <ShareButtonList
                             title="このアプリはマルチアプリです"
                             url="https://masatuber-weather-app3.netlify.app"
                           />
-                        </div>
+
                         <Title />
+                        <VisitorCounter />
                         <div className="dit">
                           <font color="black">
                             <DigitalDateTime />
                           </font>
                         </div>
                         <Home />
-                        <VisitorCounter />
                         <Link
                           onClick={buttonAlert2}
                           to="https://www.asahi-net.or.jp/~yq3t-hruc/flag_J_ALL.html"

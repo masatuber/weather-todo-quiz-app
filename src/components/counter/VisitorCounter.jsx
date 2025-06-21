@@ -11,21 +11,30 @@ function VisitorCounter() {
     if (navigator.cookieEnabled) {
       const cook = document.cookie + ";";
       const countStart = cook.indexOf("counts=");
-
+      
       if (countStart === -1) {
-        //初回訪問の場合は
+        //初回訪問の場合の表示,更新用関数で動的メッセージ定義
         setMessage("1回目の訪問です。");
         document.cookie = "counts=1";
       } else {
         //クッキーに保記録された訪問回数を取得する
         const countEnd = cook.indexOf(";", countStart);
         const cntStr = cook.substring(countStart + 7, countEnd);
-
+        
         try {
           // 数値に変換して1を加算する
           const cnt = parseInt(cntStr, 10) + 1;
-          setMessage(`${cnt}回目の訪問です！ありがとうございます。`);
           document.cookie = "counts=" + cnt + ";";
+
+          //訪問1回目はありがとうメッセージ
+          if (cnt === 1) {
+            setMessage(`${cnt}回目の訪問です！ありがとうございます。`);
+
+          } else if (cnt > 2 ) {
+            //2回目以降はSNSシェアメッセージを表示する
+            setMessage("何度も訪問ありがとうございます、SNSにシェアして頂けたら嬉しいです！");
+          }
+
         } catch (e) {
           setMessage("訪問回数の取得に失敗しました。");
         }
@@ -38,7 +47,10 @@ function VisitorCounter() {
 
   return (
     <>
-      <div className="counterText">{message}</div>
+      {/* 2回目のクッキー取得以降はありがとうメッセージをレンダリングする */}
+      <div className="counterText">
+       {message}
+      </div>
     </>
   );
 }

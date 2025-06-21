@@ -1,52 +1,61 @@
+import './ShareButtonList.css'
 import {
   FacebookIcon,
   FacebookShareButton,
-  HatenaIcon,
-  HatenaShareButton,
   LineIcon,
   LineShareButton,
   TwitterIcon,
   TwitterShareButton,
+  ThreadsShareButton,
+  ThreadsIcon,
 } from "react-share";
-import styled from "@emotion/styled";
+import styled from "@emotion/styled"; //リアクトシェアアイコン、ボタンインポート
 
-//ボタンのサイズは変数格納実施予定
+//横並びアイコン下側のCSS定義
 const Wrapper = styled.div`
   display: flex;
-  padding-bottom: 20px;
+  padding-bottom: 1px;
 `;
 
+//アイコンの間隔定数
 const ButtonWrapper = styled.div`
-  padding-right: 10px;
+  padding-right: 9.5px;
 `;
+
+//SNSのアイコンサイズ定数
+const iconSize = 30;
 
 const ShareButtonList = ({ title, url = window.location.href }) => {
   return (
-    <Wrapper>
-      <ButtonWrapper>
-        <FacebookShareButton url={url}>
-          <FacebookIcon size={35} round />
-        </FacebookShareButton>
-      </ButtonWrapper>
+    <>
+      <div className="snsButton">
+        <Wrapper>
+          <ButtonWrapper>
+            <FacebookShareButton url={url}>
+              <FacebookIcon size={iconSize} round />
+            </FacebookShareButton>
+          </ButtonWrapper>
 
-      <ButtonWrapper>
-        <LineShareButton url={url}>
-          <LineIcon size={35} round />
-        </LineShareButton>
-      </ButtonWrapper>
+          <ButtonWrapper>
+            <TwitterShareButton title={title} url={url}>
+              <TwitterIcon size={iconSize} round />
+            </TwitterShareButton>
+          </ButtonWrapper>
 
-      <ButtonWrapper>
-        <TwitterShareButton title={title} url={url}>
-          <TwitterIcon size={35} round />
-        </TwitterShareButton>
-      </ButtonWrapper>
+          <ButtonWrapper>
+            <ThreadsShareButton url={url}>
+              <ThreadsIcon size={iconSize} round />
+            </ThreadsShareButton>
+          </ButtonWrapper>
 
-      <ButtonWrapper>
-        <HatenaShareButton url={url}>
-          <HatenaIcon size={35} round />
-        </HatenaShareButton>
-      </ButtonWrapper>
-    </Wrapper>
+          <ButtonWrapper>
+            <LineShareButton url={url}>
+              <LineIcon size={iconSize} round />
+            </LineShareButton>
+          </ButtonWrapper>
+        </Wrapper>
+      </div>
+    </>
   );
 };
 

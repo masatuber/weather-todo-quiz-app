@@ -5,7 +5,7 @@ const Home = () => {
   return (
             <>
                 <div>
-                    <font color="green">
+                    <font color="blue">
                         <h2>World Weather アプリホーム</h2>
                     </font>
                 </div>
