@@ -168,11 +168,11 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                       <div className="homeBody">
                         {/* ホームForm時計結果ボタン常時表示 */}
                         <HomeIcon color="secondary" sx={{ fontSize: 35 }} />
-                        
-                          <ShareButtonList
-                            title="このアプリはマルチアプリです"
-                            url="https://masatuber-weather-app3.netlify.app"
-                          />
+
+                        <ShareButtonList
+                          title="世界の天気検索,タスク管理,カレンダー,パスワード生成,自動化スクリプト配布,Gemini App,自作SNSの機能があります"
+                          url="https://masatuber-weather-app3.netlify.app"
+                        />
 
                         <Title />
                         <VisitorCounter />

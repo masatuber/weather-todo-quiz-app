@@ -31,7 +31,7 @@ const ShareButtonList = ({ title, url = window.location.href }) => {
       <div className="snsButton">
         <Wrapper>
           <ButtonWrapper>
-            <FacebookShareButton url={url}>
+            <FacebookShareButton title={title} url={url}>
               <FacebookIcon size={iconSize} round />
             </FacebookShareButton>
           </ButtonWrapper>
@@ -43,13 +43,13 @@ const ShareButtonList = ({ title, url = window.location.href }) => {
           </ButtonWrapper>
 
           <ButtonWrapper>
-            <ThreadsShareButton url={url}>
+            <ThreadsShareButton title={title} url={url}>
               <ThreadsIcon size={iconSize} round />
             </ThreadsShareButton>
           </ButtonWrapper>
 
           <ButtonWrapper>
-            <LineShareButton url={url}>
+            <LineShareButton title={title} url={url}>
               <LineIcon size={iconSize} round />
             </LineShareButton>
           </ButtonWrapper>
