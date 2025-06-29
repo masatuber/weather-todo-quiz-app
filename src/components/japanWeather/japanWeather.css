@@ -1,0 +1,50 @@
+.descriptionText {
+  font-size: 13px;
+  font-family: monospace;
+}
+
+.weatherDate {
+  font-size: 17px;
+  color: rgb(255, 209, 209);
+  font-family: monospace;
+}
+
+.weatherResult {
+  font-size: 19px;
+  font-family: monospace;
+}
+
+.cityWeather {
+  font-size: 20;
+  color: rgb(203, 27, 27);
+  font-family: monospace;
+}
+
+.inputCode {
+  width: 200px;
+  height: 30px;
+}
+
+.title {
+  color: #00c80aea;
+}
+
+.pulldownCss {
+  padding: 5px;
+  margin-bottom: 30px;
+}
+
+.pulldownText {
+  font-size: 19px;
+}
+
+@media only screen and (max-width: 414px) {
+  .weatherResult {
+      font-size: 11px !important;
+      font-family: monospace !important; 
+    }
+        .descriptionText {
+          font-size: 9px !important;
+          font-family: monospace !important;   
+        }
+}

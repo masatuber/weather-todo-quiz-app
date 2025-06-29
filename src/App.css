@@ -3,10 +3,9 @@
 
 /* Title.js 全体のh1*/
 h1 {
-    font-weight: 70;
-    font-size: 2em;
-    color: rgb(20, 155, 20);
-    padding: 5px;
+    font-family: inherit;
+    color: rgb(0, 195, 85) !important;
+    padding: 2px;
     z-index: 11;
 }
 
@@ -22,12 +21,14 @@ h1 {
     background: url("/public/background-image.jpg");
     background-size: cover;
     background-position: initial;
-    height: 100vh;
-    width: 200vh;
+    background-color: rgba(255, 243, 227, 0.29);
+    background-blend-mode: overlay;
+    height: 280vh;
+    width: 250vh;
     text-align: center;
     display: flex;
-    border-radius: 15px;
-    box-shadow: 4px 4px 13px 5px rgba(136, 134, 134, 0.25);
+    border-radius: 20px;
+    box-shadow: 4px 4px 20px 20px rgba(136, 134, 134, 0.25);
     margin: 0px;
     transition: all 0.5s ease;
 }
@@ -212,8 +213,9 @@ input[type="text"] {
         background: url("/public/background-image2.jpg");
         background-size: cover;
         justify-content: center;
-        height: 160vh;
-        width: 160vh;
+        border-radius: 5px;
+        height: 190vh;
+        width: 215vh;
         background-position: initial;
         text-align: center;
         font-size: 15px;
@@ -237,6 +239,10 @@ input[type="text"] {
     cursor: pointer;
 }
 
+.passwordTitle {
+    font-size: 30px;
+}
+
 /* カレンダーのタイトルフォントサイズ */
 .calendarTitle {
     font-size: 20px;
@@ -251,8 +257,17 @@ input[type="text"] {
 
 /* Python自動化スクリプトDLPage */
 .pythonDlPage {
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
+    text-align: center;
+    background: url("/public/background-image3.jpg");
+    background-size: cover;
+    justify-content: center;
+    border-radius: 5px;
+    height: 190vh;
+    width: 215vh;
+    background-position: initial;
+    color: #dcf806;
 }
 
 /* お問合せPage */
@@ -309,6 +324,9 @@ input[type="text"] {
             width: 75%;
             height: 50%;
             position: relative;
+        }
+        .passwordTitle {
+            font-size: 15px !important;
         }
 }
 

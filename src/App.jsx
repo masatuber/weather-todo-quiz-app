@@ -7,6 +7,8 @@ import Loading from "./components/weather/Loading";
 import Home from "./components/weather/home";  //Homeは遅延レンダリングさせないので通常インポート
 import DigitalDateTime from "./components/DigitalDateTime";
 import VisitorCounter from './components/counter/VisitorCounter';
+import ShareButtonList from './components/counter/shareSns/ShareButtonList';
+import JapanWeather from './components/japanWeather/JapanWeather';
 //ここまでがコンポーネントインポート
 import { useState, Suspense, lazy } from "react"; //ページ単位でロードするように設定
 import { Routes, Route, Link,  } from "react-router-dom"; //BrowserRouterをindex.jsに移動しコード改善
@@ -14,7 +16,6 @@ import axios from "axios";
 import { bubble as Menu } from "react-burger-menu"; //ハンバーガーメニューライブラリ使用
 import HomeIcon from '@mui/icons-material/Home';  //Homeアイコン導入
 import AutorenewIcon from '@mui/icons-material/Autorenew';  //リロードアイコン導入
-import ShareButtonList from './components/counter/shareSns/ShareButtonList';
 
 // 動的インポート
 const NotFound = lazy(() => import('./components/not_found'));
@@ -168,12 +169,10 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                       <div className="homeBody">
                         {/* ホームForm時計結果ボタン常時表示 */}
                         <HomeIcon color="secondary" sx={{ fontSize: 35 }} />
-
                         <ShareButtonList
                           title="世界の天気検索,タスク管理,カレンダー,パスワード生成,自動化スクリプト配布,Gemini App,自作SNSの機能があります"
                           url="https://masatuber-weather-app3.netlify.app"
                         />
-
                         <Title />
                         <VisitorCounter />
                         <div className="dit">
@@ -182,6 +181,10 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                           </font>
                         </div>
                         <Home />
+                        <JapanWeather />
+                        <br />
+                        <h1>World Weather Forecast Search</h1>
+                        <br />
                         <Link
                           onClick={buttonAlert2}
                           to="https://www.asahi-net.or.jp/~yq3t-hruc/flag_J_ALL.html"
@@ -270,17 +273,17 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
               <Route
                 path="/PythonDlPage"
                 element={
-                  <>
-                    <div className="pythonDlPage">
+                  <div className="pythonDlPage">
+                    <>
                       <h1> Pythonスクリプト exe ファイルダウンロードページ</h1>
                       <div className="dit">
-                        <font color="black">
+                        <font color="#dcf806">
                           <DigitalDateTime />
                         </font>
                       </div>
                       <PythonDlPage />
-                    </div>
-                  </>
+                    </>
+                  </div>
                 }
               />
 

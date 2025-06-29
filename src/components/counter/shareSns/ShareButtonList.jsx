@@ -32,7 +32,7 @@ const ShareButtonList = ({ title, url = window.location.href }) => {
         <Wrapper>
           <ButtonWrapper>
             <FacebookShareButton title={title} url={url}>
-              <FacebookIcon size={iconSize} round />
+              <FacebookIcon size={iconSize} round  />
             </FacebookShareButton>
           </ButtonWrapper>
 

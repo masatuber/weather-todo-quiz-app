@@ -6,7 +6,7 @@
 <br> 
 
 # 【Web アプリの主力機能】
- 天気検索、タスク管理、カレンダー、パスワード生成、ジェミニカスタム App を web 機能として開発、SNSシェアボタン実装しました。
+ 世界と日本の天気検索、タスク管理、カレンダー、パスワード生成、ジェミニカスタム App を web 機能として開発、SNSシェアボタン実装しました。
  <br>
   テストコード(vitest)導入しました。
 <br>
@@ -75,17 +75,61 @@ propTypes に関連する警告が厳しすぎることや、タイプスクリ�
 
 # 【プロジェクトフォルダ階層】
 <br>
-
 ```
 app3-vite
-├─public
-└─src
-├─components
-│ ├─counter
-│ ├─todo
-│ └─weather
-└─test
-
+  ├─public
+  │     │──background-image.jpg
+  │     │── background-image2.jpg
+  │     │── background-image3.jpg
+  │     │──favicon.ico
+  │     │──manifest.json
+  │     │──robots.txt
+  │     │──sitemap.xml
+  │     │──_redirects
+  │
+  └─src
+    │ │──App.css
+    │ │── App.jsx
+    │ │──Calendar.css
+    │ │──HamburgerMenu.css
+    │ │──main.jsx
+    │  
+    └─components
+      │  │──CalendarApp.jsx
+      │  │──DigitalDateTime.jsx
+      │  │──Inquiry.jsx
+      │  │──not_found.jsx
+      │  │──PasswordGenerator.jsx
+      │  │──PythonDlPage.jsx
+      │  │
+      │  ├─counter
+      │  │   │──visitorCounter.css
+      │  │   │──VisitorCounter.jsx
+      │  │   │
+      │  │   └─shareSns
+      │  │           │──ShareButtonList.css
+      │  │           │──ShareButtonList.jsx
+      │  │
+      │  ├─japanWeather
+      │  │      ├─japanWeather.css
+      │  │      ├─JapanWeather.jsx
+      │  │
+      │  ├─todo
+      │  │    ├─Todo.jsx
+      │  │    ├─todoApps.css
+      │  │    ├─TodoApps.jsx
+      │  │    ├─TodoList.jsx
+      │  │
+      │  └─weather
+      │          ├─Form.jsx
+      │          ├─home.jsx
+      │          ├─Loading.jsx
+      │          ├─Results.jsx
+      │          ├─Title.jsx
+      │
+      └─test
+          └─components
+                    ├─weather.test.jsx
 ```
 <br>
 

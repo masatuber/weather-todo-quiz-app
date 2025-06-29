@@ -27,7 +27,7 @@ const PasswordGenerator = () => {
 
   return (
     <>
-      <h2>
+      <h2 className="passwordTitle">
         <b>パスワードジェネレータ（12桁・大文字・小文字・数字含む）</b>
       </h2>
       <h2>ランダムパスワード生成</h2>
