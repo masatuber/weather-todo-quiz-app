@@ -1,16 +1,12 @@
 //NotFound.js
-import React from 'react';
+import React from 'react'
 
-export class NotFound extends React.Component {
-
-    render() {
-        return (
-            <>
-            <h2>NotFound</h2>
-            <p>ページが見つかりません。</p>
-            </>
-        )
-    }
+function not_found() {
+  return (
+    <>
+      <div>Not Foundページが見つかりません。</div>
+    </>
+  );
 }
 
-export default NotFound;
+export default not_found

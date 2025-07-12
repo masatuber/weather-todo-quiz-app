@@ -7,7 +7,7 @@ import Loading from "./components/weather/Loading";
 import Home from "./components/weather/home";  //Homeは遅延レンダリングさせないので通常インポート
 import DigitalDateTime from "./components/DigitalDateTime";
 import VisitorCounter from './components/counter/VisitorCounter';
-import ShareButtonList from './components/counter/shareSns/ShareButtonList';
+import ShareButtonList from './components/shareSns/ShareButtonList';
 import JapanWeather from './components/japanWeather/JapanWeather';
 //ここまでがコンポーネントインポート
 import { useState, Suspense, lazy } from "react"; //ページ単位でロードするように設定
@@ -104,7 +104,7 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  gemini custom　appを開く
+                  Gemini custom　appを開く
                 </Link>
                 {/* chat bot API追加 */}
                 <Link className="menu-item" to="/TodoApps">
@@ -170,7 +170,7 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                         {/* ホームForm時計結果ボタン常時表示 */}
                         <HomeIcon color="secondary" sx={{ fontSize: 35 }} />
                         <ShareButtonList
-                          title="世界の天気検索,タスク管理,カレンダー,パスワード生成,自動化スクリプト配布,Gemini App,自作SNSの機能があります"
+                          title="日本、世界び天気検索,タスク管理,カレンダー,パスワード生成,自動化スクリプト配布,Gemini App,自作SNSの機能があります"
                           url="https://masatuber-weather-app3.netlify.app"
                         />
                         <Title />

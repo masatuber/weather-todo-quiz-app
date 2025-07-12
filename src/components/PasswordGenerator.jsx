@@ -6,10 +6,11 @@ import { Button, Snackbar } from "@mui/material";
 const PasswordGenerator = () => {
   const [password, setPassword] = useState("");
   const [copySuccess, setCopySuccess] = useState(false);
-
+  const DIGIT_NUMBER = 12
+  const SNACKBAR_AUTO_HIDE_DURATION = 2000
   // パスワード生成ハンドラー
   const generatePassword = () => {
-    const generatedPassword = randomize("Aa0", 12);
+    const generatedPassword = randomize("Aa0", DIGIT_NUMBER);
     setPassword(generatedPassword);
   };
 
@@ -47,7 +48,7 @@ const PasswordGenerator = () => {
         </Button>
         <Snackbar
           open={copySuccess}
-          autoHideDuration={2000}
+          autoHideDuration={SNACKBAR_AUTO_HIDE_DURATION}
           onClose={handleCloseSnackbar}
           message="パスワードをコピーしました。"
         />
