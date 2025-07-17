@@ -170,7 +170,7 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                         {/* ホームForm時計結果ボタン常時表示 */}
                         <HomeIcon color="secondary" sx={{ fontSize: 35 }} />
                         <ShareButtonList
-                          title="日本、世界び天気検索,タスク管理,カレンダー,パスワード生成,自動化スクリプト配布,Gemini App,自作SNSの機能があります"
+                          title="日本、世界の天気検索,タスク管理,カレンダー,パスワード生成,自動化スクリプト配布,Gemini App,自作SNSの機能があります"
                           url="https://masatuber-weather-app3.netlify.app"
                         />
                         <Title />
@@ -289,6 +289,7 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
 
               {/* パスのルートない時のページ描画 */}
               <Route path="*" element={<NotFound />} />
+              <Route path="/sitemap.xml" />
             </Routes>
           </div>
         </div>

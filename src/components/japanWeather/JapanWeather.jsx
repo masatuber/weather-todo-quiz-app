@@ -21,6 +21,7 @@ function JapanWeather() {
     { name: "福岡", code: "400010" },
   ];
 
+  const CITY_CODE_DIGIT = 6;
 
   const handleCode = (e) => {
     setcityCode(e.target.value);
@@ -32,7 +33,7 @@ function JapanWeather() {
     e.preventDefault();
 
     //入力欄が空の場合は終了
-    if (!cityCode || cityCode.length !== 6) {
+    if (!cityCode || cityCode.length !== CITY_CODE_DIGIT) {
       alert("6桁の都市コードを入力してください！");
       return;
     }

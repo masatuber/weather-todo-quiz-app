@@ -23,7 +23,7 @@ const ButtonWrapper = styled.div`
 `;
 
 //SNSのアイコンサイズ定数
-const iconSize = 30;
+const ICON_SIZE = 30;
 
 const ShareButtonList = ({ title, url = window.location.href }) => {
   return (
@@ -32,25 +32,25 @@ const ShareButtonList = ({ title, url = window.location.href }) => {
         <Wrapper>
           <ButtonWrapper>
             <FacebookShareButton title={title} url={url}>
-              <FacebookIcon size={iconSize} round  />
+              <FacebookIcon size={ICON_SIZE} round />
             </FacebookShareButton>
           </ButtonWrapper>
 
           <ButtonWrapper>
             <TwitterShareButton title={title} url={url}>
-              <TwitterIcon size={iconSize} round />
+              <TwitterIcon size={ICON_SIZE} round />
             </TwitterShareButton>
           </ButtonWrapper>
 
           <ButtonWrapper>
             <ThreadsShareButton title={title} url={url}>
-              <ThreadsIcon size={iconSize} round />
+              <ThreadsIcon size={ICON_SIZE} round />
             </ThreadsShareButton>
           </ButtonWrapper>
 
           <ButtonWrapper>
             <LineShareButton title={title} url={url}>
-              <LineIcon size={iconSize} round />
+              <LineIcon size={ICON_SIZE} round />
             </LineShareButton>
           </ButtonWrapper>
         </Wrapper>

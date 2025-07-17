@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 Allow: /
-Sitemap: https://masatuber-weather-app3-saitemapxml.netlify.app/sitemap.xml
+Sitemap: https://masatuber-weather-app3.netlify.app/sitemap.xml
