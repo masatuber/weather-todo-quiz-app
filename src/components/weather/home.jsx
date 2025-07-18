@@ -3,14 +3,15 @@
 const Home = () => {
 
   return (
-            <>
-                <div>
-                    <font color="blue">
-                        <h2>天気マルチアプリホーム</h2>
-                    </font>
-                </div>
-            </>
-        );
+    <>
+      {/* color="blue" */}
+      <div>
+        <span style={{ color: "blue" }}>
+          <h2>天気マルチアプリホーム</h2>
+        </span>
+      </div>
+    </>
+  );
 };
 
 export default Home;

@@ -176,9 +176,9 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                         <Title />
                         <VisitorCounter />
                         <div className="dit">
-                          <font color="black">
+                          <span style={{ color: "black" }}>
                             <DigitalDateTime />
-                          </font>
+                          </span>
                         </div>
                         <Home />
                         <JapanWeather />
@@ -277,9 +277,9 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                     <>
                       <h1> Pythonスクリプト exe ファイルダウンロードページ</h1>
                       <div className="dit">
-                        <font color="#dcf806">
+                        <span style={{ color: "#dcf806" }} >
                           <DigitalDateTime />
-                        </font>
+                        </span>
                       </div>
                       <PythonDlPage />
                     </>
