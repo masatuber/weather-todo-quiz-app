@@ -6,11 +6,11 @@ const Inquiry = () => {
   //hrefに直接記述せず、変数に格納しバッククオートで囲う
   const mailLink = `mailto:${GMAIL}?subject=【お問合せ】&amp;body=ご記入ください`;
 
-  const FONT_SIZE = 3;
+  const FONT_SIZE = "18px";
   
   return (
     <>
-      <font size={FONT_SIZE}>
+      <span style={{ fontSize: FONT_SIZE }}>
         <font color="black">
           <p>
             開発者にお問い合わせをする。
@@ -20,7 +20,7 @@ const Inquiry = () => {
             <a href={mailLink}>お問合せはこちらへ（メーラー起動）</a>
           </p>
         </font>
-      </font>
+      </span>
     </>
   );
 }; 

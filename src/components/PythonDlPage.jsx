@@ -8,6 +8,8 @@ function PythonDlPage() {
   //ダウンロードAPI遅延問題用に状態管理
   const [loading, setLoading] = useState(false);
 
+  const FONT_SIZE = "18px";
+
   const paDlHandle = async () => {
     setLoading(true);
 
@@ -90,7 +92,7 @@ function PythonDlPage() {
     <>
       <div>
         <p>
-          <font size="3.5">
+          <span style={{ fontSize: FONT_SIZE }}>
             概要
             <br />
             {loading && <div>ダウンロードをリクエスト中お待ちください...</div>}
@@ -114,7 +116,7 @@ function PythonDlPage() {
                 Excel自動化スクリプトをdownloadする
               </button>
             </p>
-          </font>
+          </span>
         </p>
       </div>
     </>
