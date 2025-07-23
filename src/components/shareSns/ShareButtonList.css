@@ -1,11 +1,13 @@
 /* SNSボタン左配置 */
 .snsButton {
-  margin-left: 80%;
+  background-color: rgba(0, 195, 85, 0.226);
+  width: 100%;
 }
+
 
 @media only screen and (max-width: 414px) {
   .snsButton {
-      margin-left: 35% !important; 
+     margin: auto !important;
     }
 
 }

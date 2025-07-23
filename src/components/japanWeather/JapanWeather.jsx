@@ -64,7 +64,12 @@ function JapanWeather() {
     <>
       <h3 className="title">【日本の天気検索が可能です】</h3>
       <p className="pulldownText">プルダウンを選択してください</p>
-      <select value={cityCode} onChange={handleCode} className="pulldownCss">
+      <select
+        value={cityCode}
+        onChange={handleCode}
+        className="pulldownCss"
+        style={{ cursor: "pointer" }}
+      >
         <option value="">都市を選択してください</option>
         {/* マップ関数でリスト展開する */}
         {searchCityCode.map((city) => (
@@ -86,7 +91,9 @@ function JapanWeather() {
           inputMode="numeric"
           className="inputCode"
         />
-        <button type="submit">天気検索</button>
+        <button type="submit" style={{ cursor: "pointer" }}>
+          天気検索
+        </button>
       </form>
 
       {loading && <p>ロード中...</p>}

@@ -167,20 +167,22 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                   <div className="home-background">
                     <>
                       <div className="homeBody">
-                        {/* ホームForm時計結果ボタン常時表示 */}
-                        <HomeIcon color="secondary" sx={{ fontSize: 35 }} />
-                        <ShareButtonList
-                          title="日本、世界の天気検索,タスク管理,カレンダー,パスワード生成,自動化スクリプト配布,Gemini App,自作SNSの機能があります"
-                          url="https://masatuber-weather-app3.netlify.app"
-                        />
-                        <Title />
-                        <VisitorCounter />
-                        <div className="dit">
-                          <span style={{ color: "black" }}>
-                            <DigitalDateTime />
-                          </span>
-                        </div>
-                        <Home />
+                        <header>
+                          {/* ホームForm時計結果ボタン常時表示 */}
+                          <HomeIcon color="secondary" sx={{ fontSize: 35 }} />
+                          <ShareButtonList
+                            title="日本、世界の天気検索,タスク管理,カレンダー,パスワード生成,自動化スクリプト配布,Gemini App,自作SNSの機能があります"
+                            url="https://masatuber-weather-app3.netlify.app"
+                          />
+                          <Title />
+                          <VisitorCounter />
+                          <div className="dit">
+                            <span style={{ color: "black" }}>
+                              <DigitalDateTime />
+                            </span>
+                          </div>
+                          <Home />
+                        </header>
                         <JapanWeather />
                         <br />
                         <h1>World Weather Forecast Search</h1>
@@ -206,6 +208,20 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                         {/* ↑マテリアルアイコンリロードrenderする */}
                         {loading ? <Loading /> : <Results results={results} />}
                       </div>
+                      <footer className="footer">
+                        <p>
+                          <small>
+                            サイト所有者: masaki &nbsp;
+                            <a
+                              href="https://x.com/7th_masaki?s=21"
+                              target="_blank"
+                              style={{textDecoration: "none", color: "white", cursor: "pointer"}}
+                            >
+                              サイト所有者のXはこちら
+                            </a>
+                          </small>
+                        </p>
+                      </footer>
                     </>
                   </div>
                   // ↑className="home-backgroundの終了タグ
@@ -277,7 +293,7 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                     <>
                       <h1> Pythonスクリプト exe ファイルダウンロードページ</h1>
                       <div className="dit">
-                        <span style={{ color: "#dcf806" }} >
+                        <span style={{ color: "#dcf806" }}>
                           <DigitalDateTime />
                         </span>
                       </div>
