@@ -82,6 +82,10 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
   window.location.reload();
 };
 
+
+
+
+
 //コンポーネント配置
   return (
     <>

@@ -73,27 +73,31 @@ input[type="text"] {
     margin-bottom: 30px;
     margin-right: 20px;
     font-size: 20px;
+    border-radius: 10px;
 }
 
 /* 検索ボタン用CSS */
 .button1 {    
-    border-bottom: 5px solid #812002;
+    /* border-bottom: 5px solid #812002; */
     font-size: 1.5rem;
     cursor: pointer;
-    color: #fff;
+    /* color: #fff; */
     position: absolute;
     width: 18%;
-    background-color: #ff0000;
+    /* background-color: #ff0000; */
     left: 70%;
-
+    border-radius: 100vh;
+    background-color: #b9f7af;
+    padding: 8px;
+    border-bottom: 4.5px solid #5f775b;
 }
 
 /* 天気検索ボタンCSS */
-.button1:hover {
-        margin-top: 15px;
-        border-bottom: 1px solid #ff840a;
-        opacity: 1;
-}
+/* .button1:hover { */
+        /* margin-top: 15px; */
+        /* border-bottom: 1px solid #ff840a; */
+        /* opacity: 1; */
+/* } */
 
 /* Results.js */
 .results-city {

@@ -1,4 +1,4 @@
-// API https://weather.tsukumijima.net/api/forecast/city/130010
+// API
 import "./japanWeather.css";
 import { useState } from 'react';
 import axios from 'axios';
@@ -91,7 +91,8 @@ function JapanWeather() {
           inputMode="numeric"
           className="inputCode"
         />
-        <button type="submit" style={{ cursor: "pointer" }}>
+        {/* style={{ cursor: "pointer" }} をCSSファイルに移動した方が分かりやすい */}
+        <button type="submit" className="searchButton">
           天気検索
         </button>
       </form>
