@@ -12,6 +12,9 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 Modal.setAppElement("#root");
 
 const CalendarApp = () => {
+  // グローバル変数で曜日を配列に格納する
+  const dayOfTheWeekArray = ["日", "月", "火", "水", "木", "金", "土"];
+
   const [currentDate, setCurrentDate] = useState(new Date());
   const [events, setEvents] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -61,23 +64,25 @@ const CalendarApp = () => {
       row.push(<td key={`empty-${i}`}></td>);
     }
 
-    for (let day = 1; day <= daysInMonth; day++) {
-      const dateKey = `${year}-${month + 1}-${day}`;
+    for (let oneDay = 1; oneDay <= daysInMonth; oneDay++) {
+      const dateKey = `${year}-${month + 1}-${oneDay}`;
       row.push(
         <td
-          key={day}
+          key={oneDay}
           onClick={() => openModal(dateKey)}
           className={events[dateKey] ? "event-day" : ""}
         >
           <div>
-            {day}
+            {oneDay}
             {events[dateKey] && <div className="event">{events[dateKey]}</div>}
           </div>
         </td>
       );
 
-      if ((firstDay + day) % 7 === 0 || day === daysInMonth) {
-        calendar.push(<tr key={`row-${day}`}>{row}</tr>);
+      // 条件の中で使用するため変数のスコープを適用する
+      const oneWeek = 7;
+      if ((firstDay + oneDay) % oneWeek === 0 || oneDay === daysInMonth) {
+        calendar.push(<tr key={`row-${oneDay}`}>{row}</tr>);
         row = [];
       }
     }
@@ -119,15 +124,15 @@ const CalendarApp = () => {
   return (
     <div id="calendar">
       <div className="CalendarBody">
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Container
-        component={Paper}
-        elevation={1}
-        style={{ minHeight: "100vh", maxWidth: "200vh", padding: "2px" }}
-      >
-        イベント追加が出来るカレンダー(ダークモード対応)
-        <DigitalDateTime />
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Container
+            component={Paper}
+            elevation={1}
+            style={{ minHeight: "100vh", maxWidth: "200vh", padding: "2px" }}
+          >
+            イベント追加が出来るカレンダー(ダークモード対応)
+            <DigitalDateTime />
             <div className="cld">
               <DarkModeIcon
                 onClick={() => setDarkMode((prevMode) => !prevMode)}
@@ -139,13 +144,9 @@ const CalendarApp = () => {
             <table>
               <thead>
                 <tr>
-                  <th>日</th>
-                  <th>月</th>
-                  <th>火</th>
-                  <th>水</th>
-                  <th>木</th>
-                  <th>金</th>
-                  <th>土</th>
+                  {dayOfTheWeekArray.map((weekItem) => {
+                    return <th key={weekItem}>{weekItem}</th>;
+                  })}
                 </tr>
               </thead>
               <tbody>{generateCalendar()}</tbody>
@@ -158,26 +159,30 @@ const CalendarApp = () => {
               <br />
               （ローカルストレージに保存されます）
             </span>
-
-          <Modal
-            isOpen={isModalOpen}
-            onRequestClose={closeModal}
-            className="modal"
+            <Modal
+              isOpen={isModalOpen}
+              onRequestClose={closeModal}
+              className="modal"
             >
-            <h2>{selectedDate}のイベントを登録</h2>
-            <textarea
-              value={eventText}
-              onChange={(e) => setEventText(e.target.value)}
-              placeholder="イベント内容を入力"
+              <h2>{selectedDate}のイベントを登録</h2>
+              <textarea
+                value={eventText}
+                onChange={(e) => setEventText(e.target.value)}
+                placeholder="イベント内容を入力"
               />
-            <button onClick={saveEvent}>保存</button>
-            <button onClick={closeModal}>キャンセル</button>
-          </Modal>
-      </Container>
-    </ThemeProvider>
-        </div>
+              <button onClick={saveEvent}>保存</button>
+              <button onClick={closeModal}>キャンセル</button>
+            </Modal>
+          </Container>
+        </ThemeProvider>
+      </div>
     </div>
   );
 };
 
+  // {
+  //   testArray.map((item) => {
+  //     return <li key={item}>{item}</li>;
+  //   });
+  // } map関数に置き換え下書き
 export default CalendarApp;
