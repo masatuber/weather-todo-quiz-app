@@ -105,15 +105,24 @@ function PythonDlPage() {
             今後も自動化プログラム追加予定です。
             <br />
             <p>
-              <button onClick={paDlHandle}>
-                Power Automate Desktop自動起動スクリプトをdownloadする
+              <button
+                onClick={paDlHandle}
+                style={{ backgroundColor: "rgba(174, 255, 133, 0.74)",
+                        borderRadius: "50px",
+                        padding: "8px"
+                    }}>
+                Power Automate Desktop自動起動スクリプトをDownloadする
               </button>
               <br />
               <br />
               タスク管理画面で数値を入力して、Excelにexportしてからこの自動化スクリプトを使用するとSUM関数が予め入力されているので便利な使い方になります。
               <br />
-              <button onClick={xlsxDlHandle}>
-                Excel自動化スクリプトをdownloadする
+              <button onClick={xlsxDlHandle} 
+              style={{ backgroundColor: "rgba(174, 255, 133, 0.74)",
+                      borderRadius: "50px",
+                      padding: "8px"
+                    }}>
+                Excel自動化スクリプトをDownloadする
               </button>
             </p>
           </span>

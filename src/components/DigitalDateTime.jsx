@@ -8,15 +8,17 @@ const DigitalDateTime = () => {
 
 useEffect(() => {
 setInterval(() => {
-    let d = new Date();
-    let year = d.getFullYear();
-    let month = d.getMonth() + 1;
-    let day = d.getDate();
-    let dayOfWeek = d.getDay();
+    let dateInstance = new Date();
+    let year = dateInstance.getFullYear();
+    let month = dateInstance.getMonth();
+      month++;
+
+    let day = dateInstance.getDate();
+    let dayOfWeek = dateInstance.getDay();
         setDate(year + '年' + month + '月' + day + '日' + " " + '('+ weekday[dayOfWeek] + ')');
-    let hour = d.getHours().toString().padStart(2, '0');
-    let minute = d.getMinutes().toString().padStart(2, '0');
-    let seconds = d.getSeconds().toString().padStart(2, '0');
+    let hour = dateInstance.getHours().toString().padStart(2, "0");
+    let minute = dateInstance.getMinutes().toString().padStart(2, "0");
+    let seconds = dateInstance.getSeconds().toString().padStart(2, "0");
         setTime(hour + ':' + minute + ':' + seconds);
     }, 1000);
 }, []);
