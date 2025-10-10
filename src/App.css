@@ -3,7 +3,7 @@
 
 /* Title.js 全体のh1*/
 h1 {
-    font-family: inherit;
+    font-family: 'Courier New', Courier, monospace;
     color: rgb(0, 195, 85) !important;
     padding: 2px;
     z-index: 11;
