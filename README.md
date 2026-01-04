@@ -157,6 +157,7 @@ npm install
 * 次に必要なライブラリをインストールしています。
 
 ```bash
+npm install axios
 npm install react-burger-menu --save
 npm install react-router-dom
 npm install xlsx file-saver
