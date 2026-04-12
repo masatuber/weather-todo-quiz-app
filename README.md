@@ -177,3 +177,43 @@ npm run dev
 * ビルド方法
 
 npm run build
+
+・セキュリティアラートが出たら確認する項目
+```javaScript
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.3.1",
+    "@mui/material": "^6.3.1",
+    "axios": "^1.15.0",
+    "file-saver": "^2.0.5",
+    "localforage": "^1.10.0",
+    "lodash": "^4.18.1",
+    "randomatic": "^3.1.1",
+    "react": "^18.3.1",
+    "react-burger-menu": "^3.1.0",
+    "react-dom": "^18.3.1",
+    "react-modal": "^3.16.3",
+    "react-router-dom": "^7.5.2",
+    "react-share": "^5.2.2",
+    "uuid": "^11.0.4",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react-swc": "^4.3.0",
+    "esbuild-loader": "^4.2.2",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "globals": "^15.14.0",
+    "happy-dom": "^18.0.1",
+    "vite": "^6.4.2",
+    "vitest": "^3.2.3"
+```
