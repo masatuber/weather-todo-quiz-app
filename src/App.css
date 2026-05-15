@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap'); */
 
 /* Title.js 全体のh1*/
 h1 {
@@ -91,13 +91,6 @@ input[type="text"] {
     padding: 8px;
     border-bottom: 4.5px solid #5f775b;
 }
-
-/* 天気検索ボタンCSS */
-/* .button1:hover { */
-        /* margin-top: 15px; */
-        /* border-bottom: 1px solid #ff840a; */
-        /* opacity: 1; */
-/* } */
 
 /* Results.js */
 .results-city {
@@ -287,6 +280,10 @@ input[type="text"] {
 .inquiryPage {
     display: flex;
     flex-direction: column;
+}
+
+.Freelancer {
+  color: #030303;
 }
 
 /* メディアクエリでスマホ対応CSS */

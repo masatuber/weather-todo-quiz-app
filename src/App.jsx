@@ -211,6 +211,17 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
                         />
                         {/* ↑マテリアルアイコンリロードrenderする */}
                         {loading ? <Loading /> : <Results results={results} />}
+                        <p>
+                          閲覧ありがとうございます。
+                          <br />
+                          フリーランス活動の依頼はこちら⇓
+                          <br />
+                          <a href='https://coconala.com/services/3630667' target="_blank" className='Freelancer'>低下価格でWebアプリ、サイト開発代行します 画面はReact、API開発はNodejs、即日返信</a>
+                          <br />
+                          <a href='https://coconala.com/services/3728537' target="_blank" className='Freelancer'>PowerAutomateDesktop開発します PADは生成AIに質問しても不明瞭のため依頼するメリットあり</a>
+                          <br />
+                          <a href='https://coconala.com/services/3630569' target="_blank" className='Freelancer'>PowerAutomate Web版の開発します 総務問合せフローを実務で開発運用した経験あります。</a>
+                        </p>
                       </div>
                       <footer className="footer">
                         <p>
