@@ -1,14 +1,14 @@
-// API
+// 日本の天気API
 import "./japanWeather.css";
 import { useState } from 'react';
-import axios from 'axios';
+import { fetchWeather } from "../../api/fetchWeather";
 
 function JapanWeather() {
   //天気の状態管理
-  const [japanWeather, setjapanWeather] = useState(null);
-
+  const [japanWeather, setJapanWeather] = useState(null);
+  
   //入力される都市コード状態管理
-  const [cityCode, setcityCode] = useState("");
+  const [cityCode, setCityCode] = useState("");
 
   //通信中の状態管理
   const [loading, setLoading] = useState(false);
@@ -24,11 +24,11 @@ function JapanWeather() {
   const CITY_CODE_DIGIT = 6;
 
   const handleCode = (e) => {
-    setcityCode(e.target.value);
+    setCityCode(e.target.value);
   }
 
-  //フォーム送信時のロジック
-  const handleSubmit = (e) => {
+  //フォーム送信時のロジック 非同期あり
+  const handleSubmit = async (e) => {
     //ページリロード防止
     e.preventDefault();
 
@@ -42,24 +42,28 @@ function JapanWeather() {
     setLoading(true);
 
     //前回の入力結果をクリアする
-    setjapanWeather(null);
+    setJapanWeather(null);
 
     //API通信 エラーハンドリングあり
-    axios
-      .get(`https://weather.tsukumijima.net/api/forecast/city/${cityCode}`)
-      .then((response) => {
-        setjapanWeather(response.data);
-        
-      })
-      .catch((error) => {
-        alert("天気情報取得に失敗しました");
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    try {
+
+      // fetchWeatherよりエクスポートした関数を呼び出します
+      const weatherData = await fetchWeather(cityCode);
+
+      // API通信後に更新用関数を更新
+      setJapanWeather(weatherData);
+
+    } catch(error) {
+      //関数呼び出し側のエラーは階層1
+    console.error(error, "日本の天気APIエラー階層1");
+
+    } finally {
+
+      setLoading(false);
+
+    }
   };
 
-  //setjapanWeather.location.city key={index}
   return (
     <>
       <h3 className="title">【日本の天気検索が可能です】</h3>
@@ -84,7 +88,7 @@ function JapanWeather() {
           type="tel"
           maxLength="6"
           value={cityCode}
-          onChange={(e) => setcityCode(e.target.value)}
+          onChange={(e) => setCityCode(e.target.value)}
           placeholder="都市コード6桁"
           min="0"
           max="9"
@@ -112,8 +116,8 @@ function JapanWeather() {
               天気予報詳細→{japanWeather.description.bodyText}
             </span>
             <ul>
-              {japanWeather.forecasts.map((forecast, index) => (
-                <li key={index}>
+              {japanWeather.forecasts.map((forecast) => (
+                <li key={forecast.date}>
                   <p className="weatherDate">
                     {forecast.dataLabel}
                     <br />

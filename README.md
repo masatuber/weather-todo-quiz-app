@@ -14,6 +14,10 @@
 
 天気検索のボタンを丸いデザインと緑を採用しました。
 
+#### 不具合情報
+
+日本の天気に用意した値以外入れるとバグが出る
+
 # 「天気マルチアプリのこだわり点」
 
 ハンバーガーメニューの色、動きは円を描きながら、弾けるような動きを採用しました。パソコン上には時間は表示されますが、アプリ UI の中心にリアルタイムで時間を確認したいと思い実装しました。
@@ -85,64 +89,38 @@ Vitest 導入済み、今後はカバー率を上げる予定
 
 # 【プロジェクトフォルダ階層】
 
-```txt
-app3-vite
-  ├─dist
-  ├─node_modules
-  ├─public
-  │     │──background-image.jpg
-  │     │── background-image2.jpg
-  │     │── background-image3.jpg
-  │     │──favicon.ico
-  │     │──manifest.json
-  │     │──robots.txt
-  │     │──sitemap.xml
-  │     └─_redirects
-  │
-  └─src
-    │ │──App.css
-    │ │── App.jsx
-    │ │──Calendar.css
-    │ │──HamburgerMenu.css
-    │ └─main.jsx
-    │  
-    └─components
-      │  │──CalendarApp.jsx
-      │  │──DigitalDateTime.jsx
-      │  │──Inquiry.jsx
-      │  │──not_found.jsx
-      │  │──PasswordGenerator.jsx
-      │  │──PythonDlPage.jsx
-      │  │
-      │  ├─counter
-      │  │   │──visitorCounter.css
-      │  │   └─VisitorCounter.jsx
-      │  │   
-      │  │──shareSns
-      │  │   │──ShareButtonList.css
-      │  │   └─ShareButtonList.jsx
-      │  │
-      │  ├─japanWeather
-      │  │      ├─japanWeather.css
-      │  │      └─JapanWeather.jsx
-      │  │
-      │  ├─todo
-      │  │    ├─Todo.jsx
-      │  │    ├─todoApps.css
-      │  │    ├─TodoApps.jsx
-      │  │    └─TodoList.jsx
-      │  │
-      │  └─weather
-      │          ├─Form.jsx
-      │          ├─home.jsx
-      │          ├─Loading.jsx
-      │          ├─Results.jsx
-      │          └─Title.jsx
-      │
-      └─test
-          └─components
-                    ├─weather.test.jsx
-                    
+```bash
+weather-todo-quiz-app
+├─public/
+└─src/
+    ├─api/
+    │  └─fetchWeather.js
+    ├─components/
+    │   ├─counter/
+    │   │   │──visitorCounter.css
+    │   │   └─VisitorCounter.jsx
+    │   ├─japanWeather/
+    │   │    ├─japanWeather.css
+    │   │    └─JapanWeather.jsx
+    │   ├─shareSns/
+    │   │   │──ShareButtonList.css
+    │   │   └─ShareButtonList.jsx
+    │   ├─todo/
+    │   │   ├─Todo.jsx
+    │   │   ├─todoApps.css
+    │   │   ├─TodoApps.jsx
+    │   │   └─TodoList.jsx
+    │   └─weather/
+    │       ├─Form.jsx
+    │       ├─home.jsx
+    │       ├─Loading.jsx
+    │       ├─Results.jsx
+    │       └─Title.jsx
+    └─test/
+        └─components/
+            ├─japanWeather.test.jsx
+            └─weather.test.jsx
+
 ```
 
 # 【インストール】セットアップ手順とライブラリをまとめ
@@ -216,4 +194,17 @@ npm run build
     "happy-dom": "^18.0.1",
     "vite": "^6.4.2",
     "vitest": "^3.2.3"
+```
+
+## リファクタリング
+
+責務分離を意識してAPI通信を分離させる
+
+useStateの値を他のjsファイルに渡す場合はファイル間 変数は使用出来ない
+
+他の方法はjs内に関数を定義、exportさせる、使用するjsx側に関数を呼び出して引数に変数を渡すこと。
+
+```javascript
+import { cityCode, setCityCode } from './components/japanWeather/JapanWeather.jsx';
+console.log(setCityCode);
 ```
