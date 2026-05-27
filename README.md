@@ -196,6 +196,60 @@ npm run build
     "vitest": "^3.2.3"
 ```
 
+### セキュリティアラートのpull requestをマージと検証
+
+PRのためのコマンド集とログ
+
+最新取得
+```bush
+git fetch origin
+```
+branch一覧確認
+
+```bush
+git branch -a
+> remotes/origin/HEAD -> origin/main
+  remotes/origin/counter
+  remotes/origin/dependabot/npm_and_yarn/fast-uri-3.1.2
+  remotes/origin/main
+  remotes/origin/test
+  remotes/origin/test1
+  remotes/origin/testcode
+```
+
+ここからローカル検証用のコマンド
+```bush
+git checkout -b dependabot-test origin/dependabot/npm_and_yarn/fast-uri-3.1.2
+```
+
+次は依存関係壊れていないか　npm i
+```bush
+npm run build
+```
+エラーなく終了
+```bush
+git diff
+``` 
+で差分確認　qで終了
+
+検証用で変更ない場合は破棄する
+```bush
+git status
+> modified:   package-lock.json
+```
+
+検証用のbranchのため破棄
+```bush
+git restore package-lock.json
+```
+```bush
+git checkout main
+```
+次にプルリクマージでmainにマージする
+```bush
+git pull origin main
+```
+
 ## リファクタリング
 
 責務分離を意識してAPI通信を分離させる
