@@ -33,25 +33,25 @@ const ShareButtonList = ({ title, url = window.location.href }) => {
         <Wrapper>
           <p>SNSにシェア</p>
 
-          <ButtonWrapper style={{ backgroundColor: "rgba(3, 159, 0, 0.31)" }}>
+          <ButtonWrapper >
             <LineShareButton title={title} url={url}>
               <LineIcon size={ICON_SIZE} round />
             </LineShareButton>
           </ButtonWrapper>
 
-          <ButtonWrapper style={{ backgroundColor: "rgba(0, 123, 255, 0.53)" }}>
+          <ButtonWrapper >
             <FacebookShareButton title={title} url={url}>
               <FacebookIcon size={ICON_SIZE} round />
             </FacebookShareButton>
           </ButtonWrapper>
 
-          <ButtonWrapper style={{ backgroundColor: "rgba(0, 123, 255, 0.28)" }}>
+          <ButtonWrapper >
             <TwitterShareButton title={title} url={url}>
               <TwitterIcon size={ICON_SIZE} round />
             </TwitterShareButton>
           </ButtonWrapper>
 
-          <ButtonWrapper style={{ backgroundColor: "rgba(8, 12, 27, 0.36)" }}>
+          <ButtonWrapper >
             <ThreadsShareButton title={title} url={url}>
               <ThreadsIcon size={ICON_SIZE} round />
             </ThreadsShareButton>
