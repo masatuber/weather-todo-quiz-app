@@ -1,0 +1,90 @@
+.home-background {
+    background: url("/public/background-image.jpg");
+    background-size: cover;
+    background-position: initial;
+    background-color: rgba(255, 243, 227, 0.29);
+    background-blend-mode: overlay;
+    height: 280vh;
+    width: 250vh;
+    text-align: center;
+    display: flex;
+    border-radius: 20px;
+    box-shadow: 4px 4px 20px 20px rgba(136, 134, 134, 0.25);
+    margin: 0px;
+    transition: all 0.5s ease;
+}
+
+input[type="text"] {
+    background-color: transparent;
+    border: 0;
+    border-bottom: solid 1px #f43071;
+    width: 40%;
+    padding-bottom: 4px;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+/* 世界天気の検索ボタンCSS */
+.button1 {    
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    width: 18%;
+    left: 70%;
+    border-radius: 100vh;
+    background-color: #b9f7af;
+    padding: 8px;
+    border-bottom: 4.5px solid #5f775b;
+}
+
+/* マテリアルアイコンのマウスホバー */
+.reload:hover {
+    background-color: #701919;
+}
+
+/* マテリアルアイコンリロードのCSS */
+.reload {
+    cursor: pointer;
+    color: #f4480afd;
+}
+
+.footer {
+    background-color: rgba(0, 195, 85, 0.226);
+    color: #ffffff;
+    text-align: center;
+    position: fixed;
+    bottom: 2.5px;
+    width: 100%;
+}
+
+.homeBody {
+    height: 100%;
+    width: 100%;
+    font-family: 'Raleway', 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    color: #030303;
+    font-display: auto;
+}
+
+/* DigitalDateTime.js */
+.dit {
+    height: 20px;
+    font-size: 20px;
+    font-family: 'Noto Sans JP';
+    text-align: center;
+}
+
+@media only screen and (max-width: 414px) {
+    .homeBody {
+      font-size: 9.5px !important;
+    }
+
+    .button1 {
+        font-size: 9.5px !important;
+    }
+}

@@ -1,92 +1,24 @@
 import './App.css'; //アプリ全体のCSS
 import './HamburgerMenu.css'; //ハンバーガーメニュー用CSS
 import Title from "./components/weather/Title";
-import Results from "./components/weather/Results";
-import Form from "./components/weather/Form";
-import Loading from "./components/weather/Loading";
-import Home from "./components/weather/home";  //Homeは遅延レンダリングさせないので通常インポート
 import DigitalDateTime from "./components/DigitalDateTime";
-import VisitorCounter from './components/counter/VisitorCounter';
-import ShareButtonList from './components/shareSns/ShareButtonList';
-import JapanWeather from './components/japanWeather/JapanWeather';
-//ここまでがコンポーネントインポート
+import WorldWeather from './components/weather/WorldWeather';
+//====ここまでがコンポーネントインポート=====
 import { useState, Suspense, lazy } from "react"; //ページ単位でロードするように設定
 import { Routes, Route, Link,  } from "react-router-dom"; //BrowserRouterをindex.jsに移動しコード改善
-import axios from "axios";
 import { bubble as Menu } from "react-burger-menu"; //ハンバーガーメニューライブラリ使用
-import HomeIcon from '@mui/icons-material/Home';  //Homeアイコン導入
-import AutorenewIcon from '@mui/icons-material/Autorenew';  //リロードアイコン導入
 
-// 動的インポート
+// ====動的インポート====
 const NotFound = lazy(() => import('./components/not_found'));
 const TodoApps = lazy(() => import('./components/todo/TodoApps'));
 const Inquiry = lazy(() => import('./components/Inquiry'));
 const CalendarApp = lazy(() => import('./components/CalendarApp'));
 const PasswordGenerator = lazy(() => import('./components/PasswordGenerator'));
 const PythonDlPage = lazy(() => import('./components/PythonDlPage'));
-//↑にページが増えるごとに動的インポート追加するfunction App( )に含めないこと。
+//====↑にページが増えるごとに動的インポート追加するfunction App( )に含めないこと。====
 
 function App( ) {
-  //APIキー定義
-const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
 
-//天気の状態管理
-  const [city, setCity] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [results, setResults] = useState({
-    country: "",
-    cityName: "",
-    temperature: "", 
-    condition: "",
-    icon: ""
-  });
-
-//APIと連動させる処理
-  const getWeather = (e) => {
-    e.preventDefault();
-    //検索中の状態
-    setLoading(true);
-    axios
-      .get(
-        `https://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEI}&q=${city}&aqi=no`
-      )
-      .then((res) => {
-        setResults({
-          country: res.data.location.country,
-          cityName: res.data.location.name,
-          temperature: res.data.current.temp_c,
-          condition: res.data.current.condition.text,
-          icon: res.data.current.condition.icon,
-        });
-        setCity("");
-        //ローディング中
-        setLoading(false);
-      })
-      .catch(() =>
-        alert(
-          "エラーが発生しました。ページをリロードして、もう一度トライしてください。"
-        )
-      );
-  }
-
-  //リンクで切替わるため、アラート表示でユーザーに知らせる、動的にメッセージが表示される関数定義 error
-  const showAlert = (message) => {
-    alert(message);
-  };
-
-  //天気ページに国一覧検索サイトボタンがあるため、外部サイトリンクを開くアラートを知らせる
-  const buttonAlert2 = () => alert("外部サイトが開きました。\n世界国別一覧が調べる事が出来ます。");
-
-  //マテリアルアイコンのリロードイベント（ページリロード） functionで定義
-  function reloadPage() {
-  window.location.reload();
-};
-
-
-
-
-
-//コンポーネント配置
   return (
     <>
       {/* 遅延用ラップSuspense*/}
@@ -167,80 +99,7 @@ const WEATHER_API_KEI = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
             <Routes>
               <Route
                 index
-                element={
-                  <div className="home-background">
-                    <>
-                      <div className="homeBody">
-                        <header>
-                          {/* ホームForm時計結果ボタン常時表示 */}
-                          <HomeIcon color="secondary" sx={{ fontSize: 35 }} />
-                          <ShareButtonList
-                            title="日本、世界の天気検索,タスク管理,カレンダー,パスワード生成,自動化スクリプト配布,Gemini App,自作SNSの機能があります"
-                            url="https://masatuber-weather-app3.netlify.app"
-                          />
-                          <Title />
-                          <VisitorCounter />
-                          <div className="dit">
-                            <span style={{ color: "black" }}>
-                              <DigitalDateTime />
-                            </span>
-                          </div>
-                          <Home />
-                        </header>
-                        <JapanWeather />
-                        <br />
-                        <h1>World Weather Forecast Search</h1>
-                        <br />
-                        <Link
-                          onClick={buttonAlert2}
-                          to="https://www.asahi-net.or.jp/~yq3t-hruc/flag_J_ALL.html"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          世界地図
-                        </Link>
-                        <Form
-                          getWeather={getWeather}
-                          setCity={setCity}
-                          city={city}
-                        />
-                        <AutorenewIcon
-                          sx={{ fontSize: 25 }}
-                          onClick={reloadPage}
-                          className="reload"
-                        />
-                        {/* ↑マテリアルアイコンリロードrenderする */}
-                        {loading ? <Loading /> : <Results results={results} />}
-                        <p>
-                          閲覧ありがとうございます。
-                          <br />
-                          フリーランス活動の依頼はこちら⇓
-                          <br />
-                          <a href='https://coconala.com/services/3630667' target="_blank" className='Freelancer'>低下価格でWebアプリ、サイト開発代行します 画面はReact、API開発はNodejs、即日返信</a>
-                          <br />
-                          <a href='https://coconala.com/services/3728537' target="_blank" className='Freelancer'>PowerAutomateDesktop開発します PADは生成AIに質問しても不明瞭のため依頼するメリットあり</a>
-                          <br />
-                          <a href='https://coconala.com/services/3630569' target="_blank" className='Freelancer'>PowerAutomate Web版の開発します 総務問合せフローを実務で開発運用した経験あります。</a>
-                        </p>
-                      </div>
-                      <footer className="footer">
-                        <p>
-                          <small>
-                            サイト所有者: masaki &nbsp;
-                            <a
-                              href="https://x.com/7th_masaki?s=21"
-                              target="_blank"
-                              style={{textDecoration: "none", color: "white", cursor: "pointer"}}
-                            >
-                              サイト所有者のXはこちら
-                            </a>
-                          </small>
-                        </p>
-                      </footer>
-                    </>
-                  </div>
-                  // ↑className="home-backgroundの終了タグ
-                }
+                element={ <WorldWeather /> }
               />
 
               {/* タスク管理を描画 */}

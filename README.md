@@ -115,7 +115,10 @@ weather-todo-quiz-app
     │       ├─home.jsx
     │       ├─Loading.jsx
     │       ├─Results.jsx
-    │       └─Title.jsx
+    │       ├─Title.jsx
+    │       ├─WorldWeather.jsx
+    │       └─worldWeather.css
+    │
     └─test/
         └─components/
             ├─japanWeather.test.jsx
@@ -262,3 +265,4 @@ useStateの値を他のjsファイルに渡す場合はファイル間 変数は
 import { cityCode, setCityCode } from './components/japanWeather/JapanWeather.jsx';
 console.log(setCityCode);
 ```
+世界の天気は WorldWeather.jsxに分離完了 App.cssも責務分離, worldWeather.cssに移動完了
