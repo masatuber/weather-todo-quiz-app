@@ -105,13 +105,7 @@ function App( ) {
               {/* タスク管理を描画 */}
               <Route
                 path="/TodoApps"
-                element={
-                  <>
-                    <div className="todoList">
-                      <TodoApps />
-                    </div>
-                  </>
-                }
+                element={ <TodoApps /> }
               />
 
               {/* カレンダーを描画 */}

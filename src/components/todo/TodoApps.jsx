@@ -81,6 +81,8 @@ function TodoApps() {
   return (
     <>
       <div className="todoContainer">
+        <div className="todoList">
+        
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Title />
@@ -168,6 +170,7 @@ function TodoApps() {
             </Box>
           </Container>
         </ThemeProvider>
+        </div>
       </div>
     </>
   );

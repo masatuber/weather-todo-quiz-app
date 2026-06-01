@@ -10,6 +10,17 @@
   font-size: 16px;
 }
 
+/* タスク管理画面用CSS */
+.todoList {
+    width: 100vh;
+    height: 100vh;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    font-size: 15px;
+
+}
+
 /* メディアクエリCSS */
 @media only screen and (max-width: 414px) {
   .todoText {
