@@ -25,12 +25,20 @@ describe(Home, () => {
     expect(
       screen.getByText("天気検索 タスク管理 カレンダーアプリ")
     ).toBeInTheDocument();
+
+    //TODO: 説明文は分割してテストする、この方法ではテスト通らない
     expect(
       screen.getByText(
-        "Reactアプリの機能：（日本、世界の天気予報検索、タスク管理、カレンダー表示、開発者にメール、自動化スクリプトダウンロード）別のアプリも用意しました、ジェミニチャットボッドカスタムApp、SNSアプリも訪問して頂けると嬉しいです。"
+        "Reactアプリの機能：（日本、世界の天気予報検索、タスク管理、カレンダー表示、開発者にメール、自動化スクリプトダウンロード）"
       )
     ).toBeInTheDocument();
   });
+
+  expect(
+    screen.getByText(
+      "別のアプリも用意しました、ジェミニチャットボッドカスタムApp、SNSアプリも訪問して頂けると嬉しいです。"
+    )
+  ).toBeInTheDocument();
 
   test("都市名入力と検索ボタンが表示される", () => {
     //フォームコンポーネント設定
@@ -64,6 +72,6 @@ describe(App, () => {
       screen.getByText("World Weather Forecast Search")
     ).toBeInTheDocument();
     // リンク用の文字テスト
-     expect(screen.getByText("世界地図")).toBeInTheDocument();
+    expect(screen.getByText("世界地図一覧はこちら")).toBeInTheDocument();
   });
 });
