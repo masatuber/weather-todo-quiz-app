@@ -103,14 +103,18 @@ function TodoApps() {
                     : "ダークモードに切り替え"}
                 </Button>
                 <br />
+                <dl>
                 <div className="todoText">
-                  Todoリスト管理画面
+                  <dt>Todoリスト管理画面</dt>
                   <br />
                 </div>
+                
                 <div className="todoDescription">
-                  機能：サーバーレス 未完了タスクをExcelに転記可能
-                  ダークモード切替可能。
+                  <dd>機能：サーバーレス 未完了タスクをExcelに転記可能</dd>
+                  <br />
+                  <dd>ダークモード切替可能。</dd>
                 </div>
+                </dl>
                 <TaskAltTwoToneIcon sx={{ fontSize: 15 }} />
               </Typography>
               <Box marginBottom={5}>

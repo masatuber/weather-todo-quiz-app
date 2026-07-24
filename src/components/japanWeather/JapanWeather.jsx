@@ -103,9 +103,11 @@ function JapanWeather() {
 
       {loading && <p>ロード中...</p>}
       <div>
-        <span className="weatherResult">
-          天気予報検索結果(都市コード入力すると下に天気予報が表示されます)
-        </span>
+        <p>
+          <span className="weatherResult">
+            天気予報検索結果(都市コード入力すると下に天気予報が表示されます)
+          </span>
+        </p>
 
         {japanWeather && (
           <div>
